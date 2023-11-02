@@ -10,6 +10,7 @@ import time
 
 
 def main(rerun):
+    # set up time checks
     start = time.perf_counter()
     # ##### Code under here disabled for debugging purposes
     # # get geoids for seattle
@@ -53,56 +54,68 @@ def main(rerun):
     # adrs_expanded = adrs_expanded.dropna()
     # adrs_expanded.to_csv('addresses_converted_cl.csv', index_label='idx')
 
-    adrs_expanded = pd.read_csv('addresses_converted_cl.csv', dtype={'addresses':'object'})
+    # Work of collecting addresses and storing them by block groups done already
+    # load in csv consisting of all addresses for all (workable) washington block groups
+    adrs_expanded = pd.read_csv('digital-redlining-data/res/addresses_converted_cl.csv', dtype={'addresses':'object'})
+    # clean data for json formatting
     adr_dicts = [json.loads(adr.replace("'", '"')) for adr in adrs_expanded.addresses]
     adrs_expanded['addresses'] = adr_dicts
 
-    # convert addresses to cl format
+    # convert all addresses to cl format
     cl_convr = AddressConverter('cl')
-    
     adrs_expanded['cl_addresses'] = cl_convr.list_converter(list(adrs_expanded['addresses']))
+
+    # time check
     c2 = time.perf_counter()
     print(f"{c2-start} seconds to prepare addreses")
-
-    # collecting addresses 
+ 
     # get all the gid codes
     bg_codes = np.unique(adrs_expanded.bg_geoid.values)
-    start_num = 48
-    bg_codes = bg_codes[start_num:]
+    # set the codes to be only rerun block groups if necessary
     if rerun:
         bg_codes = pd.read_csv('rerun_codes.csv', header=None).transpose()[0].values
+    # in case code is interrupted, set this index to restart at that position
+    start_num = 4
     bg_codes = bg_codes[start_num:]
-    # final data from the scraping
-    trial_data = []
-    # scrape_success = [True] * len(bg_codes)
-    # go through each code with index for debugging
+
+    # go through each bg code with index for debugging
     for i, code in enumerate(bg_codes):
+        # time for start of one block group run
         c3 = time.perf_counter()
-        # Select all addresses affiliated with the current code
+
+        # Select all addresses affiliated with the current bg
         bg = adrs_expanded[adrs_expanded['bg_geoid'] == code]
         bg_adrs = list(bg['cl_addresses'])
 
         # set up scraper with the list of addresses
         scrp = CenturyLinkScraper(bg_adrs)
 
-        # run the scraper ( all logic handled in package )
-        print(f'scraping: {i + start_num}, bg: {code}')
+        # run the scraper
+        print(f'START scraping run {i + start_num}, with bg {code} at {time.strftime("%H:%M:%S", time.localtime())}')
         data = scrp.run_scraper(i + start_num)
+        
+        # check that the data we want is returned
         if not data or data is None:
             # scrape_success[i + start_num] = False
             print(f"run {i + start_num} failed, skipping")
+        # save the data collected
         else:
-            # save data
-            trial_data.append((i + start_num, code, data))
+            # save the run number, the block group number, and all returned data
             d = list((i + start_num, code, data))
-            print(f"bg {i + start_num}: saviang {code}")
-            with open('test_2_data.csv', 'a') as f:
+            with open('digital-redlining-data/data_out/centurylink_scraped.csv', 'a') as f:
                 writer_obj = writer(f)
                 writer_obj.writerow(d)
+            
+            # save to two locations
+            with open('t.csv', 'a') as f:
+                writer_obj = writer(f)
+                writer_obj.writerow(d)
+
+            # output runtime stats
             c4 = time.perf_counter()
-            print(f"Completed in {((c4-c3) / 60)} min")
-    return trial_data
+            print(f'FINISH scraping run {i + start_num}, with bg {code} at {time.strftime("%H:%M:%S", time.localtime())}')
+            print(f"Completed in { format(( (c4-c3) / 60 ),'.2f') } min")
 
 if __name__ == '__main__':
-    t = main(rerun=True)
+    t = main(rerun=False)
     

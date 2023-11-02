@@ -3,43 +3,71 @@ import grequests
 # import logging
 import csv
 from requests.adapters import HTTPAdapter, Retry
-from random import sample
+from random import sample, randint
 import json
 import requests
+import os
 
 # provides all functions needed to run the scraping tool given a list of addresses
 class CenturyLinkScraper:
     # setup addresses, and proxies
     def __init__(self, addresses: list):
         self.addresses = addresses
-        # Read endpoints as list
-        self.endpoints = None
-        with open('Endpoints.csv', 'r') as f:
-            self.endpoints = list(csv.reader(f, delimiter=','))
-        if not self.endpoints:
-            raise Exception('Endpoints not read properly')
-        else: 
-            print('loaded endpoints')
+        # FOR STICKY SESSIONS
+        # self.endpoints_path = 'digital-redlining-data/res/Endpoints.csv'
+        # FOR ROTATING PROXY
+        self.proxy_endpoint = 'https://customer-rnickben:6TBcLj4Ugh9M@us-pr.oxylabs.io:10000'
+        # retry codes, every code but 200 and 306 (unused, for skipping)
+        self.status_list = list(x for x in requests.status_codes._codes if x not in [200, 306])
 
+    # NOT USING STICKY SESSIONS ATM
+    # return a random proxy from the endpoints file
+    # credit for random file line reading: https://stackoverflow.com/a/56973905
+    def get_next_proxy(self):
+        file_size = os.path.getsize(self.endpoints_path)
+        with open(self.endpoints_path, 'rb') as f:
+            while True:
+                pos = randint(0, file_size)
+                if not pos:  # the first line is chosen
+                    return f.readline().decode()  # return str
+                f.seek(pos)  # seek to random position
+                f.readline()  # skip possibly incomplete line
+                line = f.readline()  # read next (full) line
+                if line:
+                    return line.decode()  
+                # else: line is empty -> EOF -> try another position in next iteration
+
+    # when a request fails (including all retries), simply return -1 to show that it has failed
     def exception_handler(self, request, exception):
-        print("Request failed: ", request, exception)
+        # print("Request failed: ", request, exception)
         return -1
     
+    # sort an enumerated list by its first value
+    # used to ensure all requests are returned in order
     def sort_enum(self, e):
         return e[0]
     
+    # verifies that a list of responses contains only 200 codes
+    # if the list contains only 200 codes, return true, if not false
     def verify_responses(self, responses: list):
-        response_bools = [responses[n].status_code == 200 for n in range(len(responses))] # list of bools for each status code
+        # list of bools for each status code
+        response_bools = [responses[n].status_code == 200 for n in range(len(responses))] 
         non_200_count = sum(response_bools) - len(response_bools)
         if non_200_count != 0:
             codes = [responses[n].status_code for n in range(len(responses))]
-            # first arg is the error message, next is the number of failed codes and last is the list of the codes
-            raise ValueError("Some responses were not successful", non_200_count, codes)
+            print("Some responses were not successful", non_200_count, codes)
+            return False
+        else:
+            return True
     
+    # request auth codes for a list of addresses
+    # returns an indexed list of addressed and their auths, and a list of the raw responses
     def get_auths(self, addresses_used: list):
         with requests.Session() as s:
-            # create Retry
-            retries = Retry(total=10, backoff_factor=1.2, status_forcelist=[500, 401, 403])
+            # create retry function
+            retries = Retry(total=5, backoff_factor=1.2, 
+                            status_forcelist=self.status_list, raise_on_status=True)
+            # mount it to our session so each request will have the same retry function
             s.mount('https://', HTTPAdapter(max_retries=retries))
             
             # set up tasks
@@ -51,7 +79,7 @@ class CenturyLinkScraper:
             tasks = [
                 grequests.get(
                     url=target_url, 
-                    proxies={'https': sample(self.endpoints, 1)[0][0]}, 
+                    proxies={'https': self.proxy_endpoint}, 
                     session=s, 
                     cookies=cookies, 
                     headers=headers
@@ -61,89 +89,89 @@ class CenturyLinkScraper:
             
             # execute tasks
             raw_responses = []
-            for index, response in grequests.imap_enumerated(tasks, exception_handler=self.exception_handler):
+            for index, response in grequests.imap_enumerated(
+                                                        tasks, 
+                                                        exception_handler=self.exception_handler
+                                                            ):
+                # index for sorting, address, and then response which may be a full response or -1
                 raw_responses.append((index, addresses_used[index], response))
             raw_responses.sort(key=self.sort_enum)
 
-            # VALIDATE RESPONSES
-            responses = [res[2] for res in raw_responses]
-            try:
-                self.verify_responses(responses)
-            except ValueError as e:
-                print(f'AUTH FAILED BECAUSE OF A REQUEST FAILURE, EXCEPTION RAISED: {e}')
-                return None, None
-            except Exception as e:
-                print(f'AUTH FAILED, EXCEPTION RAISED: {e}')
-                return None, None
-            else: 
-                response_content = [json.loads(res[2].content)['access_token']for res in raw_responses]
-                auths = [(el[0], el[1], response_content[i]) for i, el in enumerate(raw_responses)]
-                return auths, raw_responses  
+            # pull access token from valid responses
+            # exception handler ensures that only 200 responses will be non -1 in raw list
+            response_content = [
+                (res[0], res[1], json.loads(res[2].content)['access_token']) 
+                if res[2] != -1 else res for res in raw_responses
+            ]
+            return response_content, raw_responses
 
+    # verifies that the address exists within the centurylink system and gets necessary data for 
+    #   collecting offers
+    # given a list of addresses and their corresponding auths
+    # returns an indexed list of addresses with their auths and address data, 
+    #   and a list of the raw responses
     def check_adr(self, addresses_used: list, auths: list):
         with requests.Session() as s:
             # create Retry
-            retries = Retry(total=10, backoff_factor=1, status_forcelist=[500, 401, 403])
+            retries = Retry(total=5, backoff_factor=1.2, 
+                            status_forcelist=self.status_list, raise_on_status=True)
+            # mount it to our session so each request will have the same retry function
             s.mount('https://', HTTPAdapter(max_retries=retries))
 
-            # set up tasks
+            # set up tasks, matching address to auths
             target_url = 'https://api.lumen.com/Application/v4/DCEP-Consumer/identifyAddress'
             tasks = [
                 grequests.post(
                     url=target_url,
-                    proxies={'https': sample(self.endpoints, 1)[0][0]},
+                    proxies={'https': self.proxy_endpoint},
                     session=s,
-                    headers={'Authorization': 'Bearer ' + auth},# needs to be set with corresponding addr
-                    json={'fullAddress': adr}# needs to be set with matching auth
+                    headers={'Authorization': 'Bearer ' + auth},
+                    json={'fullAddress': adr}
                 ) 
+                if auth != -1 
+                # make a request to a safe location that will not force retry
+                else grequests.get('https://httpbin.org/status/306')
                 for adr, auth in list(zip(addresses_used, auths))
             ]
 
             # execute tasks
             raw_responses = []
-            for index, response in grequests.imap_enumerated(tasks, exception_handler=self.exception_handler):
+            for index, response in grequests.imap_enumerated(
+                                                        tasks, 
+                                                        exception_handler=self.exception_handler
+                                                            ):
+                # catch responses from bad auths
+                if auths[index] == -1:
+                    response = -1
                 raw_responses.append((index, addresses_used[index], auths[index], response))
             raw_responses.sort(key=self.sort_enum)
             
-            # VALIDATE RESPONSES
-            responses = [res[3] for res in raw_responses]
-            try:
-                self.verify_responses(responses)
-            except ValueError as e:
-                print(f'Address verification 1 failed with the following exception: {e}')
-                response_content = []
-                for res in responses:
-                    if res.status_code != 200:
-                        response_content.append({
-                                'message':'Failed to get proper response from server while attempting to verify an initial address.',
-                                'statusCode':res.status_code,
-                                'fullResponse':res
-                            })
-                    else:
-                        response_content.append(json.loads(res.content))
-                verif_1 = [(el[0], el[1], el[2], response_content[i]) for i, el in enumerate(raw_responses)]
-                return verif_1, raw_responses
-            except Exception as e:
-                print(f'Address verification 1 failed with the following exception: {e}')
-                return None
-            else: 
-                response_content = [json.loads(res[3].content) for res in raw_responses]
-                verif_1 = [(el[0], el[1], el[2], response_content[i]) for i, el in enumerate(raw_responses)]
-                return verif_1, raw_responses
-            
+            # pull address details from valid responses
+            # exception handler ensures that only 200 responses will be non -1 in raw list
+            response_content = [
+                (res[0], res[1], res[2], json.loads(res[3].content)) 
+                if res[3] != -1 else res for res in raw_responses
+            ]
+            return response_content, raw_responses
+    
+    # updates a given list of address data for MDU units
+    # given a list of addresses and their corresponding auths/responses/address data
+    # returns an updated list of address data   
     def mdu_update(self, addresses_used: list, auths: list, mdu_list: list, adrs_response: list):
 
         with requests.Session() as s:
             # create Retry
-            retries = Retry(total=10, backoff_factor=1, status_forcelist=[500, 401, 403])
+            retries = Retry(total=5, backoff_factor=1.2, 
+                            status_forcelist=self.status_list, raise_on_status=True)
+            # mount it to our session so each request will have the same retry function
             s.mount('https://', HTTPAdapter(max_retries=retries))
 
-            # set up tasks
+            # set up tasks, excluding ones not on list
             target_url = 'https://api.lumen.com/Application/v4/DCEP-Consumer/identifyAddress'
             tasks = [
                 grequests.post(
                     url=target_url,
-                    proxies={'https': sample(self.endpoints, 1)[0][0]},
+                    proxies={'https': self.proxy_endpoint},
                     session=s,
                     headers={'Authorization': 'Bearer ' + auth},
                     json={
@@ -159,42 +187,36 @@ class CenturyLinkScraper:
 
             # execute tasks
             raw_responses = []
-            for index, response in grequests.imap_enumerated(tasks, exception_handler=self.exception_handler):
+            for index, response in grequests.imap_enumerated(
+                                                        tasks, 
+                                                        exception_handler=self.exception_handler
+                                                            ):
+                # index for sorting, address, and then response which may be a full response or -1
                 raw_responses.append((index, response))
             raw_responses.sort(key=self.sort_enum)
-            
-            # VALIDATE RESPONSES
-            responses = [res[1] for res in raw_responses]
-            try:
-                self.verify_responses(responses)
-            except ValueError as e:
-                print(f'While verifying the mdu responses the following error arose: {e}')
-                for n, mdu in enumerate(mdu_list):
-                    if mdu:
-                        r = responses.pop(0)
-                        code = r.status_code
-                        if code != 200:
-                            adrs_response[n] = {
-                                'message':'Failed to get proper response from server while attempting to verify an MDU',
-                                'statusCode':code,
-                                'fullResponse':r
-                            }
-                        else:
-                            adrs_response[n] = json.loads(r.content)
-                return adrs_response, raw_responses
-            except Exception as e:
-                print(f'While verifying the mdu responses the following error arose: {e}')
-                return -1
-            else: 
-                for n, mdu in enumerate(mdu_list):
-                    if mdu:
-                        adrs_response[n] = json.loads(responses.pop(0).content)
-                return adrs_response, raw_responses
 
+            # replace old responses with updated ones
+            # can do this for each instead of making async requests but they're fast
+            responses = [res[1] for res in raw_responses]
+            for n, mdu in enumerate(mdu_list):
+                if mdu:
+                    t = responses.pop(0)
+                    if t == -1:
+                        adrs_response[n] = -1
+                    else: 
+                        adrs_response[n] = json.loads(t.content)
+            return adrs_response, raw_responses
+
+    # get internet plan offers from centurylink
+    # given a list of addresses and their corresponding auths/address data/offer list
+    # returns a list of offers
     def get_offers(self, addresses_used: list, auths: list, adrs_response: list, has_offers: list):
+
         with requests.Session() as s:
             # create Retry
-            retries = Retry(total=10, backoff_factor=1, status_forcelist=[500, 401, 403])
+            retries = Retry(total=5, backoff_factor=1.2, 
+                            status_forcelist=self.status_list, raise_on_status=True)
+            # mount it to our session so each request will have the same retry function
             s.mount('https://', HTTPAdapter(max_retries=retries))
 
             # set up tasks
@@ -202,7 +224,7 @@ class CenturyLinkScraper:
             tasks = [
                 grequests.post(
                     url=target_url,
-                    proxies={'https': sample(self.endpoints, 1)[0][0]},
+                    proxies={'https': self.proxy_endpoint},
                     session=s,
                     headers={'Authorization': 'Bearer ' + auth},
                     json={
@@ -219,38 +241,28 @@ class CenturyLinkScraper:
 
             # execute tasks
             raw_responses = []
-            for index, response in grequests.imap_enumerated(tasks, exception_handler=self.exception_handler):
+            for index, response in grequests.imap_enumerated(
+                                                        tasks, 
+                                                        exception_handler=self.exception_handler
+                                                            ):
+                # index for sorting, address, and then response which may be a full response or -1
                 raw_responses.append((index, response))
             raw_responses.sort(key=self.sort_enum)
-            
-            # VALIDATE RESPONSES
+
+            # parse offers
             responses = [res[1] for res in raw_responses]
-            try:
-                self.verify_responses(responses)
-            except ValueError as e:
-                print(f'While collecting offers the following error arose: {e}')
-                offers_list = []
-                for status in has_offers:
-                    r = responses.pop(0)
-                    if status & (r.status_code == 200):
-                        offers_list.append(json.loads(r.content))
-                    elif r.status_code != 200:
-                        offers_list.append("Request for offers failed with status {r.status_code}")
-                    else:
-                        offers_list.append(None)
-                return offers_list, raw_responses
-            except Exception as e:
-                print(f'While collecting offers the following error arose: {e}')
-                return None, None
-            else: 
-                offers_list = []
-                for status in has_offers:
-                    if status:
-                        offers_list.append(json.loads(responses.pop(0).content))
-                    else:
-                        offers_list.append(None)
-                return offers_list, raw_responses
+            offers_list = []
+            for green in has_offers:
+                if green:
+                    t = responses.pop(0)
+                    if t == -1:
+                        offers_list.append(-1)
+                    else: 
+                        offers_list.append(json.loads(t.content))
+            return offers_list, raw_responses
     
+    # only method that should be called!
+    # runs the scraper
     def run_scraper(self, i: int):
         # select the addresses we will be using (initially)
         adr_sample = sample(self.addresses, int(len(self.addresses) / 10))
@@ -258,46 +270,43 @@ class CenturyLinkScraper:
         
         # get the authentication for each address
         auths, raw_1 = self.get_auths(addresses_used=adr_sample)
-        if auths is None:
-            print(f'Scraping failed')
-            return -1
-        else:
-            print(f'Auths collected for {i}')
-        # return auths, raw_responses
         just_auths = [el[2] for el in auths]
-        # return just_auths
-
+        # see how many auths failed
+        failed_auths = sum([True if el == -1 else False for el in just_auths])
+        if failed_auths > 0:
+            print(f'{failed_auths} out of {len(adr_sample)} auths failed.')
+        
         # verify addresses for the first time
         verif_adr, raw_2 = self.check_adr(addresses_used=adr_sample, auths=just_auths)
-        if verif_adr is None: 
-            print('auth failed')
-            return -1
-        else:
-            print(f'First adrs collected for {i}')
-        # return verif_adr, raw_2
         just_adr_1 = [el[3] for el in verif_adr]
-        is_mdu = ['mdu matches' in m['message'].lower() for m in just_adr_1]
-        # return is_mdu, just_adr_1
+        # see how many verifications failed
+        failed_verif_adr = sum([True if el == -1 else False for el in just_adr_1])
+        if failed_verif_adr - failed_auths > 0:
+            print(f'{failed_verif_adr - failed_auths} out of \
+                  {len(adr_sample) - failed_auths} verifications failed.')
+
+        # check for MDUs
+        is_mdu = ['mdu matches' in m['message'].lower() if m != -1 else False for m in just_adr_1]
 
         # update all mdu units with actual address data
         just_adr_2, raw_3 = self.mdu_update(addresses_used=adr_sample, auths=just_auths, mdu_list=is_mdu, adrs_response=just_adr_1)
-        
-        if just_adr_2 is None: 
-            print('mdu update failed')
-            return -1
-        else:
-            print(f'MDU\'s updated for {i}')
-        # return verif_adr_2, raw_3
+        # see how many mdu verifications failed
+        failed_verif_mdu = sum([True if el == -1 else False for el in just_adr_2])
+        if failed_verif_mdu - failed_verif_adr > 0:
+            print(f'{failed_verif_mdu - failed_verif_adr} out of \
+                  {len(adr_sample) - failed_verif_adr} verifications failed.')
 
         # check for valid tags before getting offers
-        has_offers = [(('green' in m['message'].lower()) | ('success' in m['message'].lower())) for m in just_adr_2]
+        has_offers = [(('green' in m['message'].lower()) | ('success' in m['message'].lower())) if m != -1 else False for m in just_adr_2]
+        print(f'Checking {sum(has_offers)} addresses out of {len(adr_sample)} for offers ({len(adr_sample) - (sum(has_offers) + failed_verif_mdu) } units had non-green responses).')
+        
         # collect offers for each address that has offers
         just_offers, raw_4 = self.get_offers(addresses_used=adr_sample, auths=just_auths, adrs_response=just_adr_2, has_offers=has_offers)
-        if just_offers is None: 
-            print('mdu update failed')
-            return -1
-        else:
-            print(f'Offers collected for {i}')
+        # see how many offer requests failed
+        failed_offers = sum([True if el == -1 else False for el in just_offers])
+        if failed_offers - failed_verif_mdu > 0:
+            print(f'{failed_offers - failed_verif_mdu} out of \
+                  {len(adr_sample) - failed_verif_mdu} offer requests failed.')
         
         # uncleaned format with all address and offer data
         a = list(zip(adr_sample, just_adr_2, has_offers, just_offers))
