@@ -67,7 +67,7 @@ def main(rerun):
 
     # time check
     c2 = time.perf_counter()
-    print(f"{c2-start} seconds to prepare addreses")
+    print(f"{ format((c2-start),'.2f') } sec to prepare addresses")
  
     # get all the gid codes
     bg_codes = np.unique(adrs_expanded.bg_geoid.values)
@@ -75,7 +75,7 @@ def main(rerun):
     if rerun:
         bg_codes = pd.read_csv('rerun_codes.csv', header=None).transpose()[0].values
     # in case code is interrupted, set this index to restart at that position
-    start_num = 4
+    start_num = 44
     bg_codes = bg_codes[start_num:]
 
     # go through each bg code with index for debugging
@@ -95,9 +95,25 @@ def main(rerun):
         data = scrp.run_scraper(i + start_num)
         
         # check that the data we want is returned
+        # IF we aren't zipping an empty list (which we should never do anymore)
+        # then this will never be none.
         if not data or data is None:
             # scrape_success[i + start_num] = False
-            print(f"run {i + start_num} failed, skipping")
+            print(f"run {i + start_num} failed, skipping\n")
+            d = list((i + start_num, code, -1))
+            with open('digital-redlining-data/data_out/centurylink_scraped.csv', 'a') as f:
+                writer_obj = writer(f)
+                writer_obj.writerow(d)
+            
+            # save to two locations
+            with open('t.csv', 'a') as f:
+                writer_obj = writer(f)
+                writer_obj.writerow(d)
+
+            # output runtime stats
+            c4 = time.perf_counter()
+            print(f'FINISH scraping run {i + start_num}, with bg {code} at {time.strftime("%H:%M:%S", time.localtime())}')
+            print(f"Completed in { format(( (c4-c3) / 60 ),'.2f') } min\n")
         # save the data collected
         else:
             # save the run number, the block group number, and all returned data
@@ -114,7 +130,45 @@ def main(rerun):
             # output runtime stats
             c4 = time.perf_counter()
             print(f'FINISH scraping run {i + start_num}, with bg {code} at {time.strftime("%H:%M:%S", time.localtime())}')
-            print(f"Completed in { format(( (c4-c3) / 60 ),'.2f') } min")
+            print(f"Completed in { format(( (c4-c3) / 60 ),'.2f') } min\n")
+
+    # From here, we should go through each block group again (maybe recursively?)
+    # and check for missed addresses. Try each one again, then maybe try new addresses?
+    '''
+    read in bg from file [run num, bg code, [address, address data, offers]]
+        fully re-run each with missing address data (maybe 3 times or until data is sent back)
+        rerun just getting offers for those with addresses but no offers (maybe 3 time or until data is sent back)
+
+
+
+
+
+    if has no offer, but auth succeeded, simply try again and if no response keep data
+    if missing offer:
+        did auth fail?
+        if yes, retry auth
+            Did second auth fail?
+            if no, collect data
+                if collection fails again, move to next step
+            if yes, get new address (that hasn't been chosen)
+                try scrape again
+
+    for bg in bg list:
+        async method queue
+        for address in bg:
+            if address has no offer:
+                call async method that will do all the logic 
+        execute async methods
+
+    async get missed offers method(address):
+        How many times have we tried this particular address?
+            Has this address been failing auths?
+                If yes, get new address and try this again
+
+    [bg code, address, ]
+    async get missed offers method(address):
+
+    '''
 
 if __name__ == '__main__':
     t = main(rerun=False)

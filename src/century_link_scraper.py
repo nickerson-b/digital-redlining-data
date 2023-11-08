@@ -196,7 +196,8 @@ class CenturyLinkScraper:
             raw_responses.sort(key=self.sort_enum)
 
             # replace old responses with updated ones
-            # can do this for each instead of making async requests but they're fast
+            ## can do this for each instead of making async requests but they're fast ##
+            # since we are modifying a list, we only need to do something if the case is met
             responses = [res[1] for res in raw_responses]
             for n, mdu in enumerate(mdu_list):
                 if mdu:
@@ -250,15 +251,25 @@ class CenturyLinkScraper:
             raw_responses.sort(key=self.sort_enum)
 
             # parse offers
+            # because we are constructing a new list we need to put something in for each address
             responses = [res[1] for res in raw_responses]
             offers_list = []
+            # go through the list of bools for each address
             for green in has_offers:
+                # if the address should have offers
                 if green:
+                    # grab the first response
                     t = responses.pop(0)
+                    # if the request failed, put our fail placeholder
                     if t == -1:
                         offers_list.append(-1)
+                    # if the request didn't fail, put that data in!
                     else: 
                         offers_list.append(json.loads(t.content))
+                # if the address should not have offers
+                else: 
+                    # put our fail placeholder
+                    offers_list.append(-1)
             return offers_list, raw_responses
     
     # only method that should be called!
@@ -282,8 +293,7 @@ class CenturyLinkScraper:
         # see how many verifications failed
         failed_verif_adr = sum([True if el == -1 else False for el in just_adr_1])
         if failed_verif_adr - failed_auths > 0:
-            print(f'{failed_verif_adr - failed_auths} out of \
-                  {len(adr_sample) - failed_auths} verifications failed.')
+            print(f'{failed_verif_adr - failed_auths} out of {len(adr_sample) - failed_auths} verifications failed.')
 
         # check for MDUs
         is_mdu = ['mdu matches' in m['message'].lower() if m != -1 else False for m in just_adr_1]
@@ -293,8 +303,7 @@ class CenturyLinkScraper:
         # see how many mdu verifications failed
         failed_verif_mdu = sum([True if el == -1 else False for el in just_adr_2])
         if failed_verif_mdu - failed_verif_adr > 0:
-            print(f'{failed_verif_mdu - failed_verif_adr} out of \
-                  {len(adr_sample) - failed_verif_adr} verifications failed.')
+            print(f'{failed_verif_mdu - failed_verif_adr} out of {len(adr_sample) - failed_verif_adr} verifications failed.')
 
         # check for valid tags before getting offers
         has_offers = [(('green' in m['message'].lower()) | ('success' in m['message'].lower())) if m != -1 else False for m in just_adr_2]
@@ -305,9 +314,9 @@ class CenturyLinkScraper:
         # see how many offer requests failed
         failed_offers = sum([True if el == -1 else False for el in just_offers])
         if failed_offers - failed_verif_mdu > 0:
-            print(f'{failed_offers - failed_verif_mdu} out of \
-                  {len(adr_sample) - failed_verif_mdu} offer requests failed.')
+            print(f'{failed_offers - failed_verif_mdu} out of {len(adr_sample) - failed_verif_mdu} offer requests failed.')
         
         # uncleaned format with all address and offer data
-        a = list(zip(adr_sample, just_adr_2, has_offers, just_offers))
+        # [address used for request, data returned from that address, offers for that address]
+        a = list(zip(adr_sample, just_adr_2, just_offers))
         return a
