@@ -9,7 +9,7 @@ from csv import writer
 import time
 
 
-def main(rerun):
+def main(rerun, s_num):
     # set up time checks
     start = time.perf_counter()
     # ##### Code under here disabled for debugging purposes
@@ -75,7 +75,7 @@ def main(rerun):
     if rerun:
         bg_codes = pd.read_csv('rerun_codes.csv', header=None).transpose()[0].values
     # in case code is interrupted, set this index to restart at that position
-    start_num = 44
+    start_num = s_num
     bg_codes = bg_codes[start_num:]
 
     # go through each bg code with index for debugging
@@ -171,5 +171,5 @@ def main(rerun):
     '''
 
 if __name__ == '__main__':
-    t = main(rerun=False)
+    t = main(rerun=False, s_num=63)
     
