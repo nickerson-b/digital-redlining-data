@@ -171,5 +171,5 @@ def main(rerun, s_num):
     '''
 
 if __name__ == '__main__':
-    t = main(rerun=False, s_num=63)
+    t = main(rerun=False, s_num=71)
     

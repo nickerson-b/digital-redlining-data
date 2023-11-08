@@ -16,7 +16,8 @@ class CenturyLinkScraper:
         # FOR STICKY SESSIONS
         # self.endpoints_path = 'digital-redlining-data/res/Endpoints.csv'
         # FOR ROTATING PROXY
-        self.proxy_endpoint = 'https://customer-rnickben:6TBcLj4Ugh9M@us-pr.oxylabs.io:10000'
+        self.proxy_endpoint = 'https://customer-rnickben-cc-us-st-us_washington:6TBcLj4Ugh9M@pr.oxylabs.io:7777'
+        # self.proxy_endpoint = 'https://customer-rnickben:6TBcLj4Ugh9M@us-pr.oxylabs.io:10000'
         # retry codes, every code but 200 and 306 (unused, for skipping)
         self.status_list = list(x for x in requests.status_codes._codes if x not in [200, 306])
 
