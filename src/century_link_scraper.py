@@ -19,7 +19,7 @@ class CenturyLinkScraper:
         self.proxy_endpoint = 'https://customer-rnickben-cc-us-st-us_washington:6TBcLj4Ugh9M@pr.oxylabs.io:7777'
         # self.proxy_endpoint = 'https://customer-rnickben:6TBcLj4Ugh9M@us-pr.oxylabs.io:10000'
         # retry codes, every code but 200 and 306 (unused, for skipping)
-        self.status_list = list(x for x in requests.status_codes._codes if x not in [200, 306])
+        self.status_list = list(x for x in requests.status_codes._codes if x not in [200])
 
     # NOT USING STICKY SESSIONS ATM
     # return a random proxy from the endpoints file
@@ -66,7 +66,7 @@ class CenturyLinkScraper:
     def get_auths(self, addresses_used: list):
         with requests.Session() as s:
             # create retry function
-            retries = Retry(total=5, backoff_factor=1.2, 
+            retries = Retry(total=8, backoff_factor=.8, 
                             status_forcelist=self.status_list, raise_on_status=True)
             # mount it to our session so each request will have the same retry function
             s.mount('https://', HTTPAdapter(max_retries=retries))
@@ -129,10 +129,9 @@ class CenturyLinkScraper:
                     headers={'Authorization': 'Bearer ' + auth},
                     json={'fullAddress': adr}
                 ) 
-                if auth != -1 
                 # make a request to a safe location that will not force retry
-                else grequests.get('https://httpbin.org/status/306')
-                for adr, auth in list(zip(addresses_used, auths))
+                # else grequests.get('https://httpbin.org/status/306')
+                for adr, auth in list(zip(addresses_used, auths)) if auth != -1
             ]
 
             # execute tasks
@@ -141,20 +140,33 @@ class CenturyLinkScraper:
                                                         tasks, 
                                                         exception_handler=self.exception_handler
                                                             ):
-                # catch responses from bad auths
-                if auths[index] == -1:
-                    response = -1
-                raw_responses.append((index, addresses_used[index], auths[index], response))
+                raw_responses.append((index, response))
             raw_responses.sort(key=self.sort_enum)
+
+            responses = [res[1] for res in raw_responses]
+            adrs_response = []
+            # for each auth
+            for n, auth in enumerate(auths):
+                # if that auth was not -1 (and therefore a request was made)
+                if auth != -1:
+                    # get the response from that request
+                    t = responses.pop(0)
+                    # if that response failed
+                    if t == -1:
+                        # then list that the response failed
+                        adrs_response.append((n, addresses_used[n], auth, -1))
+                    else: 
+                        # otherwise the response was a success and we should load the data
+                        adrs_response.append((n, addresses_used[n], auth, json.loads(t.content)))
+                else:
+                    # auth was -1 so no request was made and -1 should be listed
+                    adrs_response.append((n, addresses_used[n], auth, -1))
+            print(adrs_response)
+            return adrs_response, raw_responses
             
             # pull address details from valid responses
             # exception handler ensures that only 200 responses will be non -1 in raw list
-            response_content = [
-                (res[0], res[1], res[2], json.loads(res[3].content)) 
-                if res[3] != -1 else res for res in raw_responses
-            ]
-            return response_content, raw_responses
-    
+
     # updates a given list of address data for MDU units
     # given a list of addresses and their corresponding auths/responses/address data
     # returns an updated list of address data   
@@ -286,6 +298,8 @@ class CenturyLinkScraper:
         # see how many auths failed
         failed_auths = sum([True if el == -1 else False for el in just_auths])
         if failed_auths > 0:
+            # if len(adr_sample) - failed_auths == 0:
+            #     return -1
             print(f'{failed_auths} out of {len(adr_sample)} auths failed.')
         
         # verify addresses for the first time
@@ -293,7 +307,12 @@ class CenturyLinkScraper:
         just_adr_1 = [el[3] for el in verif_adr]
         # see how many verifications failed
         failed_verif_adr = sum([True if el == -1 else False for el in just_adr_1])
+        print(f"{failed_verif_adr}\n")
+        print(f"{verif_adr}\n")
+        print(f"{just_adr_1}\n")
         if failed_verif_adr - failed_auths > 0:
+            # if len(adr_sample) - failed_verif_adr == 0:
+            #     return -1
             print(f'{failed_verif_adr - failed_auths} out of {len(adr_sample) - failed_auths} verifications failed.')
 
         # check for MDUs
@@ -304,6 +323,8 @@ class CenturyLinkScraper:
         # see how many mdu verifications failed
         failed_verif_mdu = sum([True if el == -1 else False for el in just_adr_2])
         if failed_verif_mdu - failed_verif_adr > 0:
+            # if len(adr_sample) - failed_verif_mdu == 0:
+            #     return -1
             print(f'{failed_verif_mdu - failed_verif_adr} out of {len(adr_sample) - failed_verif_adr} verifications failed.')
 
         # check for valid tags before getting offers
@@ -315,6 +336,8 @@ class CenturyLinkScraper:
         # see how many offer requests failed
         failed_offers = sum([True if el == -1 else False for el in just_offers])
         if failed_offers - failed_verif_mdu > 0:
+            # if len(adr_sample) - failed_offers == 0:
+            #     return -1
             print(f'{failed_offers - failed_verif_mdu} out of {len(adr_sample) - failed_verif_mdu} offer requests failed.')
         
         # uncleaned format with all address and offer data
