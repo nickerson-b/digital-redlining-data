@@ -8,6 +8,12 @@ import json
 import requests
 import os
 
+# when a request fails (including all retries), simply return -1 to show that it has failed
+# out here because its breaking??
+def exception_handler(request, exception):
+    # print("Request failed: ", request, exception)
+    return -1
+
 # provides all functions needed to run the scraping tool given a list of addresses
 class CenturyLinkScraper:
     # setup addresses, and proxies
@@ -37,11 +43,6 @@ class CenturyLinkScraper:
                 if line:
                     return line.decode()  
                 # else: line is empty -> EOF -> try another position in next iteration
-
-    # when a request fails (including all retries), simply return -1 to show that it has failed
-    def exception_handler(self, request, exception):
-        # print("Request failed: ", request, exception)
-        return -1
     
     # sort an enumerated list by its first value
     # used to ensure all requests are returned in order
@@ -92,19 +93,37 @@ class CenturyLinkScraper:
             raw_responses = []
             for index, response in grequests.imap_enumerated(
                                                         tasks, 
-                                                        exception_handler=self.exception_handler
+                                                        exception_handler=exception_handler
                                                             ):
                 # index for sorting, address, and then response which may be a full response or -1
                 raw_responses.append((index, addresses_used[index], response))
-            raw_responses.sort(key=self.sort_enum)
-
-            # pull access token from valid responses
-            # exception handler ensures that only 200 responses will be non -1 in raw list
-            response_content = [
-                (res[0], res[1], json.loads(res[2].content)['access_token']) 
-                if res[2] != -1 else res for res in raw_responses
+            # pull out requests that failed and were caught
+            failed_responses = [
+                res for res in raw_responses if (res[2] == -1)
             ]
-            return response_content, raw_responses
+            # pull out requests that returned a code
+            coded_responses = [
+                        res for res in raw_responses if (res[2] != -1)
+                    ]
+            # if those codes aren't 200, set to -1 and if they are 200 get the token
+            coded_responses = [
+                [res[0], res[1], json.loads(res[2].content)['access_token']] 
+                if res[2].status_code == 200 else [res[0], res[1], -1] for res in coded_responses
+            ]
+            # merge 2 lists
+            responses = coded_responses + failed_responses
+            # sort the list
+            responses.sort(key=self.sort_enum)
+
+            # raw_responses.sort(key=self.sort_enum)
+
+            # # pull access token from valid responses
+            # # exception handler ensures that only 200 responses will be non -1 in raw list
+            # response_content = [
+            #     (res[0], res[1], json.loads(res[2].content)['access_token']) 
+            #     if (res[2] != -1 | res[2].status_code != 200) else (res[0], res[1], -1) for res in raw_responses
+            # ]
+            return responses, raw_responses
 
     # verifies that the address exists within the centurylink system and gets necessary data for 
     #   collecting offers
@@ -112,6 +131,7 @@ class CenturyLinkScraper:
     # returns an indexed list of addresses with their auths and address data, 
     #   and a list of the raw responses
     def check_adr(self, addresses_used: list, auths: list):
+        # auths: list same length as addresses_used, either 'access_token' or -1
         with requests.Session() as s:
             # create Retry
             retries = Retry(total=5, backoff_factor=1.2, 
@@ -120,6 +140,7 @@ class CenturyLinkScraper:
             s.mount('https://', HTTPAdapter(max_retries=retries))
 
             # set up tasks, matching address to auths
+            # if the auth failed, don't run that task
             target_url = 'https://api.lumen.com/Application/v4/DCEP-Consumer/identifyAddress'
             tasks = [
                 grequests.post(
@@ -138,14 +159,15 @@ class CenturyLinkScraper:
             raw_responses = []
             for index, response in grequests.imap_enumerated(
                                                         tasks, 
-                                                        exception_handler=self.exception_handler
+                                                        exception_handler=exception_handler
                                                             ):
                 raw_responses.append((index, response))
+            # sort responses
             raw_responses.sort(key=self.sort_enum)
-
+            # get just responses
             responses = [res[1] for res in raw_responses]
             adrs_response = []
-            # for each auth
+            # create the cleaned response list with [index, address, auth, content (or -1)]
             for n, auth in enumerate(auths):
                 # if that auth was not -1 (and therefore a request was made)
                 if auth != -1:
@@ -153,15 +175,16 @@ class CenturyLinkScraper:
                     t = responses.pop(0)
                     # if that response failed
                     if t == -1:
-                        # then list that the response failed
-                        adrs_response.append((n, addresses_used[n], auth, -1))
+                        adrs_response.append([n, addresses_used[n], auth, -1])
+                    # if failed in a weird way
+                    if t.status_code != 200:
+                        adrs_response.append([n, addresses_used[n], auth, -1])
                     else: 
                         # otherwise the response was a success and we should load the data
-                        adrs_response.append((n, addresses_used[n], auth, json.loads(t.content)))
+                        adrs_response.append([n, addresses_used[n], auth, json.loads(t.content)])
                 else:
                     # auth was -1 so no request was made and -1 should be listed
-                    adrs_response.append((n, addresses_used[n], auth, -1))
-            print(adrs_response)
+                    adrs_response.append([n, addresses_used[n], auth, -1])
             return adrs_response, raw_responses
             
             # pull address details from valid responses
@@ -202,21 +225,28 @@ class CenturyLinkScraper:
             raw_responses = []
             for index, response in grequests.imap_enumerated(
                                                         tasks, 
-                                                        exception_handler=self.exception_handler
+                                                        exception_handler=exception_handler
                                                             ):
                 # index for sorting, address, and then response which may be a full response or -1
                 raw_responses.append((index, response))
             raw_responses.sort(key=self.sort_enum)
 
             # replace old responses with updated ones
-            ## can do this for each instead of making async requests but they're fast ##
             # since we are modifying a list, we only need to do something if the case is met
             responses = [res[1] for res in raw_responses]
+            # if the unit is mdu, then a request was made
             for n, mdu in enumerate(mdu_list):
+                # if a request wasn't made, just go to next unit
                 if mdu:
+                    # unit is mdu, so a request was made. pop response
                     t = responses.pop(0)
+                    # response failed and was caught, set to -1 (this will delete old addr data)
                     if t == -1:
                         adrs_response[n] = -1
+                    # same as above, but failed in an unexpected way
+                    if t.status_code != 200:
+                        adrs_response[n] = -1
+                    # response returned with code 200
                     else: 
                         adrs_response[n] = json.loads(t.content)
             return adrs_response, raw_responses
@@ -257,11 +287,12 @@ class CenturyLinkScraper:
             raw_responses = []
             for index, response in grequests.imap_enumerated(
                                                         tasks, 
-                                                        exception_handler=self.exception_handler
+                                                        exception_handler=exception_handler
                                                             ):
                 # index for sorting, address, and then response which may be a full response or -1
                 raw_responses.append((index, response))
             raw_responses.sort(key=self.sort_enum)
+            # ordered response list by location in has_offers
 
             # parse offers
             # because we are constructing a new list we need to put something in for each address
@@ -275,6 +306,9 @@ class CenturyLinkScraper:
                     t = responses.pop(0)
                     # if the request failed, put our fail placeholder
                     if t == -1:
+                        offers_list.append(-1)
+                    # if request failed, but in an unexpected way
+                    if t.status_code != 200:
                         offers_list.append(-1)
                     # if the request didn't fail, put that data in!
                     else: 
@@ -295,8 +329,12 @@ class CenturyLinkScraper:
         # get the authentication for each address
         auths, raw_1 = self.get_auths(addresses_used=adr_sample)
         just_auths = [el[2] for el in auths]
+        # auths: [index, addresses_used[index], 'access_token'/-1]
+        # just_auths: ['access_token'/-1]
+
         # see how many auths failed
         failed_auths = sum([True if el == -1 else False for el in just_auths])
+        print(f'FOR TESTING: FAILED_AUTHS = {failed_auths}')
         if failed_auths > 0:
             # if len(adr_sample) - failed_auths == 0:
             #     return -1
@@ -305,17 +343,20 @@ class CenturyLinkScraper:
         # verify addresses for the first time
         verif_adr, raw_2 = self.check_adr(addresses_used=adr_sample, auths=just_auths)
         just_adr_1 = [el[3] for el in verif_adr]
+        # verif_adr: [index, address, 'auth'/-1, {adr_info}/-1]
+        # just_adr_1: {adr_info}/-1
+        
         # see how many verifications failed
         failed_verif_adr = sum([True if el == -1 else False for el in just_adr_1])
-        print(f"{failed_verif_adr}\n")
-        print(f"{verif_adr}\n")
-        print(f"{just_adr_1}\n")
+        print(f'FOR TESTING: failed_verif_adr = {failed_verif_adr}')
         if failed_verif_adr - failed_auths > 0:
             # if len(adr_sample) - failed_verif_adr == 0:
             #     return -1
             print(f'{failed_verif_adr - failed_auths} out of {len(adr_sample) - failed_auths} verifications failed.')
 
-        # check for MDUs
+        # check for MDUs 22
+        # for t in just_adr_1:
+        #     print(t)
         is_mdu = ['mdu matches' in m['message'].lower() if m != -1 else False for m in just_adr_1]
 
         # update all mdu units with actual address data
@@ -328,13 +369,16 @@ class CenturyLinkScraper:
             print(f'{failed_verif_mdu - failed_verif_adr} out of {len(adr_sample) - failed_verif_adr} verifications failed.')
 
         # check for valid tags before getting offers
+        for t in just_adr_2:
+            print(t)
+        # issue here would be if response from server has no message section
         has_offers = [(('green' in m['message'].lower()) | ('success' in m['message'].lower())) if m != -1 else False for m in just_adr_2]
-        print(f'Checking {sum(has_offers)} addresses out of {len(adr_sample)} for offers ({len(adr_sample) - (sum(has_offers) + failed_verif_mdu) } units had non-green responses).')
+        print(f'Checking {sum(has_offers)} addresses out of {len(adr_sample)} for offers ({len(adr_sample) - (sum(has_offers) + failed_verif_mdu)} units had non-green responses).')
         
         # collect offers for each address that has offers
         just_offers, raw_4 = self.get_offers(addresses_used=adr_sample, auths=just_auths, adrs_response=just_adr_2, has_offers=has_offers)
         # see how many offer requests failed
-        failed_offers = sum([True if el == -1 else False for el in just_offers])
+        failed_offers = sum([True if el == -1 else False for el in just_offers]) - (len(adr_sample) - (sum(has_offers) + failed_verif_mdu))
         if failed_offers - failed_verif_mdu > 0:
             # if len(adr_sample) - failed_offers == 0:
             #     return -1
@@ -342,5 +386,6 @@ class CenturyLinkScraper:
         
         # uncleaned format with all address and offer data
         # [address used for request, data returned from that address, offers for that address]
+        print(len(adr_sample), len(just_adr_2), len(just_offers))
         a = list(zip(adr_sample, just_adr_2, just_offers))
         return a
