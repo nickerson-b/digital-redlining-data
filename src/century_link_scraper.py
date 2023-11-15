@@ -67,7 +67,7 @@ class CenturyLinkScraper:
     def get_auths(self, addresses_used: list):
         with requests.Session() as s:
             # create retry function
-            retries = Retry(total=8, backoff_factor=.8, 
+            retries = Retry(total=4, backoff_factor=.9, 
                             status_forcelist=self.status_list, raise_on_status=True)
             # mount it to our session so each request will have the same retry function
             s.mount('https://', HTTPAdapter(max_retries=retries))
@@ -93,7 +93,8 @@ class CenturyLinkScraper:
             raw_responses = []
             for index, response in grequests.imap_enumerated(
                                                         tasks, 
-                                                        exception_handler=exception_handler
+                                                        exception_handler=exception_handler,
+                                                        size=40
                                                             ):
                 # index for sorting, address, and then response which may be a full response or -1
                 raw_responses.append((index, addresses_used[index], response))
@@ -134,7 +135,7 @@ class CenturyLinkScraper:
         # auths: list same length as addresses_used, either 'access_token' or -1
         with requests.Session() as s:
             # create Retry
-            retries = Retry(total=5, backoff_factor=1.2, 
+            retries = Retry(total=4, backoff_factor=2, 
                             status_forcelist=self.status_list, raise_on_status=True)
             # mount it to our session so each request will have the same retry function
             s.mount('https://', HTTPAdapter(max_retries=retries))
@@ -159,7 +160,8 @@ class CenturyLinkScraper:
             raw_responses = []
             for index, response in grequests.imap_enumerated(
                                                         tasks, 
-                                                        exception_handler=exception_handler
+                                                        exception_handler=exception_handler,
+                                                        size=25
                                                             ):
                 raw_responses.append((index, response))
             # sort responses
@@ -197,7 +199,7 @@ class CenturyLinkScraper:
 
         with requests.Session() as s:
             # create Retry
-            retries = Retry(total=5, backoff_factor=1.2, 
+            retries = Retry(total=5, backoff_factor=2, 
                             status_forcelist=self.status_list, raise_on_status=True)
             # mount it to our session so each request will have the same retry function
             s.mount('https://', HTTPAdapter(max_retries=retries))
@@ -225,7 +227,8 @@ class CenturyLinkScraper:
             raw_responses = []
             for index, response in grequests.imap_enumerated(
                                                         tasks, 
-                                                        exception_handler=exception_handler
+                                                        exception_handler=exception_handler,
+                                                        size=25
                                                             ):
                 # index for sorting, address, and then response which may be a full response or -1
                 raw_responses.append((index, response))
@@ -258,7 +261,7 @@ class CenturyLinkScraper:
 
         with requests.Session() as s:
             # create Retry
-            retries = Retry(total=5, backoff_factor=1.2, 
+            retries = Retry(total=5, backoff_factor=2, 
                             status_forcelist=self.status_list, raise_on_status=True)
             # mount it to our session so each request will have the same retry function
             s.mount('https://', HTTPAdapter(max_retries=retries))
@@ -287,7 +290,8 @@ class CenturyLinkScraper:
             raw_responses = []
             for index, response in grequests.imap_enumerated(
                                                         tasks, 
-                                                        exception_handler=exception_handler
+                                                        exception_handler=exception_handler,
+                                                        size=25
                                                             ):
                 # index for sorting, address, and then response which may be a full response or -1
                 raw_responses.append((index, response))
@@ -324,8 +328,7 @@ class CenturyLinkScraper:
     def run_scraper(self, i: int):
         # select the addresses we will be using (initially)
         adr_sample = sample(self.addresses, int(len(self.addresses) / 10))
-        # adr_sample = self.addresses
-        
+        n_addrs = len(adr_sample)
         # get the authentication for each address
         auths, raw_1 = self.get_auths(addresses_used=adr_sample)
         just_auths = [el[2] for el in auths]
@@ -333,12 +336,10 @@ class CenturyLinkScraper:
         # just_auths: ['access_token'/-1]
 
         # see how many auths failed
-        failed_auths = sum([True if el == -1 else False for el in just_auths])
-        print(f'FOR TESTING: FAILED_AUTHS = {failed_auths}')
-        if failed_auths > 0:
-            # if len(adr_sample) - failed_auths == 0:
-            #     return -1
-            print(f'{failed_auths} out of {len(adr_sample)} auths failed.')
+        n_failed_auths = sum([True if el == -1 else False for el in just_auths])
+        print(f'FOR TESTING: FAILED_AUTHS = {n_failed_auths}')
+        if n_failed_auths > 0:
+            print(f'{n_failed_auths} out of {n_addrs} auths failed.')
         
         # verify addresses for the first time
         verif_adr, raw_2 = self.check_adr(addresses_used=adr_sample, auths=just_auths)
@@ -347,45 +348,55 @@ class CenturyLinkScraper:
         # just_adr_1: {adr_info}/-1
         
         # see how many verifications failed
-        failed_verif_adr = sum([True if el == -1 else False for el in just_adr_1])
-        print(f'FOR TESTING: failed_verif_adr = {failed_verif_adr}')
-        if failed_verif_adr - failed_auths > 0:
-            # if len(adr_sample) - failed_verif_adr == 0:
-            #     return -1
-            print(f'{failed_verif_adr - failed_auths} out of {len(adr_sample) - failed_auths} verifications failed.')
+        n_failed_verif_adr = sum([True if el == -1 else False for el in just_adr_1])
+        print(f'FOR TESTING: failed_verif_adr = {n_failed_verif_adr}')
 
-        # check for MDUs 22
-        # for t in just_adr_1:
-        #     print(t)
+        # if the number of verifications that failed was higher than the number of auths that failed
+        if n_failed_verif_adr - n_failed_auths > 0:
+            # number of new failed requests // number of possible successes
+            print(f'{n_failed_verif_adr - n_failed_auths} out of {n_addrs - n_failed_auths} verifications failed.')
+
+        # see what units are mdu
         is_mdu = ['mdu matches' in m['message'].lower() if m != -1 else False for m in just_adr_1]
+        n_is_mdu = sum(is_mdu)
 
         # update all mdu units with actual address data
         just_adr_2, raw_3 = self.mdu_update(addresses_used=adr_sample, auths=just_auths, mdu_list=is_mdu, adrs_response=just_adr_1)
+        
         # see how many mdu verifications failed
-        failed_verif_mdu = sum([True if el == -1 else False for el in just_adr_2])
-        if failed_verif_mdu - failed_verif_adr > 0:
-            # if len(adr_sample) - failed_verif_mdu == 0:
-            #     return -1
-            print(f'{failed_verif_mdu - failed_verif_adr} out of {len(adr_sample) - failed_verif_adr} verifications failed.')
+        n_failed_verif_mdu = sum([True if el == -1 else False for el in just_adr_2])
+        # if mdu request failed, then the sum of just_adr_2 will be higher than just_adr_1
+        if n_failed_verif_mdu - n_failed_verif_adr > 0:
+            # number of additional mdu failures // number of possible successes 
+            print(f'{n_failed_verif_mdu - n_failed_verif_adr} out of {n_is_mdu} mdus failed.')
 
         # check for valid tags before getting offers
-        for t in just_adr_2:
-            print(t)
-        # issue here would be if response from server has no message section
+        # for t in just_adr_2:
+        #     print(t)
+
+        # list which addrs have offers to collect
         has_offers = [(('green' in m['message'].lower()) | ('success' in m['message'].lower())) if m != -1 else False for m in just_adr_2]
-        print(f'Checking {sum(has_offers)} addresses out of {len(adr_sample)} for offers ({len(adr_sample) - (sum(has_offers) + failed_verif_mdu)} units had non-green responses).')
         
+        # calculate stats
+        n_has_offers = sum(has_offers)
+        n_valid_responses = n_addrs - n_failed_verif_mdu
+        n_non_green = n_valid_responses - n_has_offers
+        print(f'Checking {n_has_offers} addresses out of {n_addrs} for offers. {n_non_green} units had non-green responses.')
+
         # collect offers for each address that has offers
         just_offers, raw_4 = self.get_offers(addresses_used=adr_sample, auths=just_auths, adrs_response=just_adr_2, has_offers=has_offers)
-        # see how many offer requests failed
-        failed_offers = sum([True if el == -1 else False for el in just_offers]) - (len(adr_sample) - (sum(has_offers) + failed_verif_mdu))
-        if failed_offers - failed_verif_mdu > 0:
-            # if len(adr_sample) - failed_offers == 0:
-            #     return -1
-            print(f'{failed_offers - failed_verif_mdu} out of {len(adr_sample) - failed_verif_mdu} offer requests failed.')
+
+        # see how many offer requests failed, some number will have non green responses
+        n_failed_offers = sum([True if el == -1 else False for el in just_offers])
+        n_successful_offers = n_addrs - n_failed_offers
+        # check if additionall offers failed
+        if n_successful_offers < n_has_offers:
+            # how many offer requests failed
+            print(f'{n_has_offers - n_successful_offers} out of {n_has_offers} offer requests failed.')
         
         # uncleaned format with all address and offer data
         # [address used for request, data returned from that address, offers for that address]
+        print(f"{n_successful_offers} offers collected for {n_addrs} addresses ({int(n_successful_offers / n_addrs * 100)}%)")
         print(len(adr_sample), len(just_adr_2), len(just_offers))
         a = list(zip(adr_sample, just_adr_2, just_offers))
         return a

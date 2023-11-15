@@ -171,5 +171,13 @@ def main(rerun, s_num):
     '''
 
 if __name__ == '__main__':
-    t = main(rerun=False, s_num=98)
+    t = main(rerun=False, s_num=197)
     
+'''
+
+{'status': 1, 'message': 'Address_Validation_Service_Error. Service Unavailable', 'addrValInfo': {'result': '', 'billingSource': '', 'fullAddress': '527 N  84TH ST SEATTLE WA 98103 USA', 'addressId': None, 'mduInfo': {'mduList': None}, 'wireCenter': '', 'nearMatchAddress': None, 'nearMatchList': None, 'exactMatchAddress': None, 'companyOwnerId': None}, 'loopQualInfo': None, 'leadIndicator': None, 'leadIndicatorStatus': None, 'addressId': None, 'unitNumber': None, 'geoSecUnitId': None, 'googleInfo': None, 'biwfInfo': None, 'below940': False, 'existingService': False, 'expectedCompDate': None, 'lnppiMainDecision': None}
+
+Team Booth 131 E
+
+'''
+
