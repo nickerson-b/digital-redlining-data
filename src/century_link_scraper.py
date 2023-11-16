@@ -329,6 +329,14 @@ class CenturyLinkScraper:
         # select the addresses we will be using (initially)
         adr_sample = sample(self.addresses, int(len(self.addresses) / 10))
         n_addrs = len(adr_sample)
+        # if we have no addresses
+        if len(self.addresses) == 0:
+            print("---------------- Something went very wrong ----------------------")
+            return [-1, -1, -1]
+        # if our addresses are less than 10 and we don't have any sample
+        if (n_addrs <= 1) & (len(self.addresses) <= 10):
+            adr_sample = self.addresses
+            n_addrs = len(adr_sample)
         # get the authentication for each address
         auths, raw_1 = self.get_auths(addresses_used=adr_sample)
         just_auths = [el[2] for el in auths]

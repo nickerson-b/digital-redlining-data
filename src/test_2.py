@@ -41,6 +41,7 @@ def main(rerun, s_num):
     # adrs_expanded = adrs.explode(column='addresses')
 
     # # clean data
+    # # 530330053041??
     # # NOTE: block group 530359901000 and 530339901000 are block groups with 0 residents and oddly no geography on the census website
     # # they are removed from consideration with the first dropna call.
     # # additionally, block group 530330242002 had a number of addresses that were missing values.
@@ -171,7 +172,7 @@ def main(rerun, s_num):
     '''
 
 if __name__ == '__main__':
-    t = main(rerun=False, s_num=197)
+    t = main(rerun=False, s_num=406)
     
 '''
 
