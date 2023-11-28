@@ -17,7 +17,7 @@ def exception_handler(request, exception):
 # provides all functions needed to run the scraping tool given a list of addresses
 class CenturyLinkScraper:
     # setup addresses, and proxies
-    def __init__(self, addresses: list):
+    def __init__(self, addresses=None):
         self.addresses = addresses
         # FOR STICKY SESSIONS
         # self.endpoints_path = 'digital-redlining-data/res/Endpoints.csv'
@@ -325,7 +325,7 @@ class CenturyLinkScraper:
     
     # only method that should be called!
     # runs the scraper
-    def run_scraper(self, i: int):
+    def run_scraper(self, i=0):
         # select the addresses we will be using (initially)
         adr_sample = sample(self.addresses, int(len(self.addresses) / 10))
         n_addrs = len(adr_sample)
