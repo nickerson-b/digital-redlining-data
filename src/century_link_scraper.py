@@ -7,6 +7,8 @@ from random import sample, randint
 import json
 import requests
 import os
+import io
+from contextlib import redirect_stdout
 
 # when a request fails (including all retries), simply return -1 to show that it has failed
 # out here because its breaking??

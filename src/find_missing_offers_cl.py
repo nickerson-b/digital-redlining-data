@@ -8,10 +8,11 @@ import numpy as np
 import pandas as pd
 import csv
 import time
+import io
+from contextlib import redirect_stdout
 
 # given a row from a df, validate that data
 def bad_data(row: list) -> bool:
-    # print(row)
     bad = True
     if (row['coverage_response'] == -1):
         return bad
@@ -61,8 +62,8 @@ def fix_rows(rows):
     # update our rows
     rows_df.update(res_df)
 
-    # update the number of times each call has been made, adding 3 if the response was successful but the overall call was not so it only goes one additional times
-    rows_df['num_runs'] = rows_df.apply(lambda x: x['num_runs'] + 3 if (x['coverage_response']!=-1) else x['num_runs'] + 1, axis=1)
+    # update the number of times each call has been made, adding 2 if the response was successful but the overall call was not so it only goes one additional times
+    rows_df['num_runs'] = rows_df.apply(lambda x: x['num_runs'] + 2 if (x['coverage_response']!=-1) else x['num_runs'] + 1, axis=1)
 
     # split into successful and failed calls
     good_to_go, maybe_to_be_fixed = split_good_bad(rows_df)
@@ -70,7 +71,7 @@ def fix_rows(rows):
     # move any run too many times to good
     to_be_fixed = []
     for item in maybe_to_be_fixed:
-        if item[4] >=5:
+        if item[4] >=3:
             good_to_go.append(item)
         else:
             to_be_fixed.append(item)
@@ -89,6 +90,8 @@ def fill_data(rows: pd.DataFrame) -> pd.DataFrame:
     # split good and bad rows
     good_to_go, to_be_fixed = split_good_bad(rows)
     # return recursive function call
+    if len(to_be_fixed) <= 0:
+        return good_to_go
     return fix_rows(to_be_fixed) + good_to_go
     # return to_be_fixed + good_to_go
     # return fix_rows(to_be_fixed)
@@ -96,22 +99,29 @@ def fill_data(rows: pd.DataFrame) -> pd.DataFrame:
 # fill in missing spots in our data
 # by redoing failed requests
 def main(g):
+    start = time.perf_counter()
+    print(f'{time.strftime("%H:%M:%S", time.localtime())}: Scraper started. Loading Data...')
     # read in full dataset
     # each block group will be split off and filled in
     # this is a resource intensive approach requiring the entire dataset to be held in memory with its converted formatting
     # but it is simple and easier to read so this is how it will be done at this moment
-    full_data = pd.read_csv('../data_out/cs_data_cleaned.csv', converters={'coverage_response': literal_eval, 'offers': literal_eval})
+    full_data = pd.read_csv('data_out/cs_data_cleaned.csv', converters={'coverage_response': literal_eval, 'offers': literal_eval})
     full_data = full_data.reset_index().drop(columns=['run_num', 'index'])
 
     # list all unique bg codes
     bgs = set(full_data['gid_code'].values)
-    
+    print(f'{time.strftime("%H:%M:%S", time.localtime())}: Data Loaded. \n      Time elapsed:{ format(( (time.perf_counter() - start) / 60 ),".2f") } min')
     # open our target file
-    with open('../data_out/test_2_data.csv', 'a', newline='') as outfile:
+    with open('data_out/test_2_data.csv', 'a', newline='') as outfile:
         write_out = csv.writer(outfile)
         # select code, select rows with code, call the update function, passing the rows, write out
-        g=g
+        a = 0
         for code in bgs:
+            if a < g:
+                a += 1
+                continue
+            r_time = time.perf_counter()
+            print(f'{time.strftime("%H:%M:%S", time.localtime())}: ({a}) Filling data for block group {code}.')
             # where the code matches, convert those rows to a new dataframe
             rows = pd.DataFrame(full_data.iloc[full_data[full_data['gid_code'] == code].index].values, columns=full_data.columns)
 
@@ -119,13 +129,18 @@ def main(g):
             rows['num_runs'] = 0
 
             # run recursive scraper
-            new_data = fill_data(rows)
+            text_trap = io.StringIO()
+            new_data = []
+            with redirect_stdout(text_trap):
+                new_data = fill_data(rows)
 
             # clean data slightly
             new_df = pd.DataFrame(new_data, columns=['bg', 'address', 'coverage_response', 'offers', 'runs']).drop(columns=['runs']).replace(-1, None)
             
             # write the newly updated data
             write_out.writerows(new_df.values)
+            print(f'{time.strftime("%H:%M:%S", time.localtime())}: ({a}) Block group {code} filled. \n      Time elapsed:{ format(( (time.perf_counter() - r_time) / 60 ),".2f") } min')
+            a += 1
 
 
 if __name__ == '__main__':
