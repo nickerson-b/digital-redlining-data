@@ -252,7 +252,7 @@ class QuantumScraper:
         # get csrfs
         # call data to sessions
         # save pages
-        run_num = 1
+        run_num = 20
         for adr_chunk in chunker(addresses, 10):
             # start run
             print(f'{time.strftime("%H:%M:%S", time.localtime())}: Run {run_num} with {len(adr_chunk)} addresses START.')
@@ -314,4 +314,4 @@ if __name__ == "__main__":
     print(f'got some addresses! \n{addresses[:10]}')
     # init scraper
     g = QuantumScraper(outfolder='../data_out/quantum_pages')
-    g.scrape(addresses)
+    g.scrape(addresses[200:])

@@ -404,7 +404,7 @@ try {
 		search_params.refs = '[{\"name\":\"Category\",\"value\":\"SmartNIDPlan\"}]';
 		search_params.sort = 'sort-category-products';
 		search_params.imageUUID = '';
-		search_params.searchID = '4e8c6dfc-878e-4103-82d1-7a33824e98f1';
+		search_params.searchID = '2d3d3b3c-44b6-41f5-99d9-3b62e816c108';
 		search_params.locale = 'default';
 		search_params.queryLocale = 'default';
 		search_params.showProducts = 'true';
@@ -578,7 +578,7 @@ try {
 		search_params.refs = '[{\"name\":\"Category\",\"value\":\"SmartNIDPlan\"}]';
 		search_params.sort = 'sort-category-products';
 		search_params.imageUUID = '';
-		search_params.searchID = '4e8c6dfc-878e-4103-82d1-7a33824e98f1';
+		search_params.searchID = '2d3d3b3c-44b6-41f5-99d9-3b62e816c108';
 		search_params.locale = 'default';
 		search_params.queryLocale = 'default';
 		search_params.showProducts = 'true';
@@ -821,7 +821,7 @@ try {
 		search_params.refs = '[{\"name\":\"Category\",\"value\":\"SmartNIDPlan\"}]';
 		search_params.sort = 'sort-category-products';
 		search_params.imageUUID = '';
-		search_params.searchID = '4e8c6dfc-878e-4103-82d1-7a33824e98f1';
+		search_params.searchID = '2d3d3b3c-44b6-41f5-99d9-3b62e816c108';
 		search_params.locale = 'default';
 		search_params.queryLocale = 'default';
 		search_params.showProducts = 'true';
@@ -1056,7 +1056,7 @@ try {
 		search_params.refs = '[{\"name\":\"Category\",\"value\":\"SmartNIDPlan\"}]';
 		search_params.sort = 'sort-category-products';
 		search_params.imageUUID = '';
-		search_params.searchID = '4e8c6dfc-878e-4103-82d1-7a33824e98f1';
+		search_params.searchID = '2d3d3b3c-44b6-41f5-99d9-3b62e816c108';
 		search_params.locale = 'default';
 		search_params.queryLocale = 'default';
 		search_params.showProducts = 'true';
