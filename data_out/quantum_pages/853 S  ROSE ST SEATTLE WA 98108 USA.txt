@@ -404,7 +404,7 @@ try {
 		search_params.refs = '[{\"name\":\"Category\",\"value\":\"SmartNIDPlan\"}]';
 		search_params.sort = 'sort-category-products';
 		search_params.imageUUID = '';
-		search_params.searchID = '72c8a98c-5f50-47d6-983e-b71112b2f81e';
+		search_params.searchID = '67daa6d0-5212-4fa7-8ab3-1cfad81bb2a7';
 		search_params.locale = 'default';
 		search_params.queryLocale = 'default';
 		search_params.showProducts = 'true';
@@ -638,7 +638,7 @@ try {
 		search_params.refs = '[{\"name\":\"Category\",\"value\":\"SmartNIDPlan\"}]';
 		search_params.sort = 'sort-category-products';
 		search_params.imageUUID = '';
-		search_params.searchID = '72c8a98c-5f50-47d6-983e-b71112b2f81e';
+		search_params.searchID = '67daa6d0-5212-4fa7-8ab3-1cfad81bb2a7';
 		search_params.locale = 'default';
 		search_params.queryLocale = 'default';
 		search_params.showProducts = 'true';

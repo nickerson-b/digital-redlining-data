@@ -1,0 +1,1089 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang>
+<head>
+<script src="https://www.googleoptimize.com/optimize.js?id=OPT-NMRW4PS"></script>
+<!--[if gt IE 9]><!-->
+<script>//common/scripts.isml</script>
+<script defer type="text/javascript" src="/on/demandware.static/Sites-QFCC-Site/-/default/v1707242584047/js/main.js"></script>
+<script defer type="text/javascript" src="/on/demandware.static/Sites-QFCC-Site/-/default/v1707242584047/js/search.js">
+        </script>
+<script defer type="text/javascript" src="/on/demandware.static/Sites-QFCC-Site/-/default/v1707242584047/js/uiLibrary.js">
+        </script>
+<!--<![endif]-->
+<meta charset="UTF-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>Quantum Fiber Plans Available to You!</title>
+<link rel="canonical" href />
+<meta name="description" content="Commerce Cloud Storefront Reference Architecture" />
+<meta name="robots" content="noindex" rel="noindex" />
+<meta property="description" content="Select the right Quantum Fiber internet speeds that&rsquo;s right for your online needs.">
+<link rel="icon" type="image/png" href="/on/demandware.static/Sites-QFCC-Site/-/default/dwd0d69059/images/favicons/qf-favicon-196x196.png" sizes="196x196" />
+<link rel="icon" type="image/png" href="/on/demandware.static/Sites-QFCC-Site/-/default/dwa5f12103/images/favicons/qf-favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/png" href="/on/demandware.static/Sites-QFCC-Site/-/default/dwdf59c5a3/images/favicons/qf-favicon-32x32.png" sizes="32x32" />
+<link rel="icon" type="image/png" href="/on/demandware.static/Sites-QFCC-Site/-/default/dwb963fb91/images/favicons/qf-favicon-16x16.png" sizes="16x16" />
+<link rel="icon" type="image/png" href="/on/demandware.static/Sites-QFCC-Site/-/default/dw1577f2b5/images/favicons/qf-favicon-128x128.png" sizes="128x128" />
+<link rel="stylesheet" href="https://use.typekit.net/oyj0okb.css" />
+<link rel="stylesheet" href="https://use.typekit.net/lvm7clc.css" />
+<link rel="stylesheet" href="/on/demandware.static/Sites-QFCC-Site/-/default/v1707242584047/css/global.css" />
+<link rel="stylesheet" href="/on/demandware.static/Sites-QFCC-Site/-/default/v1707242584047/css/categoryPlan.css" />
+<script>
+window.dataLayer = window.dataLayer || [];
+</script>
+
+<script>
+	(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	                'https://www.googletagmanager.com/gtm.js?id='+i+dl+ '&gtm_auth=jWygDNlI5jMfkcMGVwTM1w&gtm_preview=env-1&gtm_cookies_win=x';f.parentNode.insertBefore(j,f);
+	                })(window,document,'script','dataLayer','GTM-P4HKT96');
+</script>
+
+
+<script>
+	(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	                'https://www.googletagmanager.com/gtm.js?id='+i+dl+ '&gtm_auth=cIhYS6Uk9hcIPNf4pZSGiQ&gtm_cookies_win=x';f.parentNode.insertBefore(j,f);
+	                })(window,document,'script','dataLayer','GTM-KJ5BFWX');
+</script>
+
+
+<script async src="https://www.googleoptimize.com/optimize.js?id=OPT-NMRW4PS"></script>
+
+<script>
+const encrypted_account_id = '';
+</script>
+<span id="pageInfo" data-page-info="{&quot;category&quot;:&quot;SmartNIDPlan&quot;}" data-page-title="Quantum Fiber Plans Available to You!" data-isoriginsbg="false">
+</span>
+
+<noscript>
+	<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KJ5BFWX&gtm_auth=cIhYS6Uk9hcIPNf4pZSGiQ&gtm_cookies_win=x" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+
+
+<noscript>
+	<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P4HKT96&gtm_auth=jWygDNlI5jMfkcMGVwTM1w&gtm_preview=env-1&gtm_cookies_win=x" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+
+<link rel="canonical" href="/shop/smartNidSpeeds" />
+<script type="text/javascript">//<!--
+/* <![CDATA[ (head-active_data.js) */
+var dw = (window.dw || {});
+dw.ac = {
+    _analytics: null,
+    _events: [],
+    _category: "",
+    _searchData: "",
+    _anact: "",
+    _anact_nohit_tag: "",
+    _analytics_enabled: "true",
+    _timeZone: "US/Mountain",
+    _capture: function(configs) {
+        if (Object.prototype.toString.call(configs) === "[object Array]") {
+            configs.forEach(captureObject);
+            return;
+        }
+        dw.ac._events.push(configs);
+    },
+	capture: function() { 
+		dw.ac._capture(arguments);
+		// send to CQ as well:
+		if (window.CQuotient) {
+			window.CQuotient.trackEventsFromAC(arguments);
+		}
+	},
+    EV_PRD_SEARCHHIT: "searchhit",
+    EV_PRD_DETAIL: "detail",
+    EV_PRD_RECOMMENDATION: "recommendation",
+    EV_PRD_SETPRODUCT: "setproduct",
+    applyContext: function(context) {
+        if (typeof context === "object" && context.hasOwnProperty("category")) {
+        	dw.ac._category = context.category;
+        }
+        if (typeof context === "object" && context.hasOwnProperty("searchData")) {
+        	dw.ac._searchData = context.searchData;
+        }
+    },
+    setDWAnalytics: function(analytics) {
+        dw.ac._analytics = analytics;
+    },
+    eventsIsEmpty: function() {
+        return 0 == dw.ac._events.length;
+    }
+};
+/* ]]> */
+// -->
+</script>
+<script type="text/javascript">//<!--
+/* <![CDATA[ (head-cquotient.js) */
+var CQuotient = window.CQuotient = {};
+CQuotient.clientId = 'bgtm-QFCC';
+CQuotient.realm = 'BGTM';
+CQuotient.siteId = 'QFCC';
+CQuotient.instanceType = 'prd';
+CQuotient.locale = 'default';
+CQuotient.fbPixelId = '__UNKNOWN__';
+CQuotient.activities = [];
+CQuotient.cqcid='';
+CQuotient.cquid='';
+CQuotient.cqeid='';
+CQuotient.cqlid='';
+CQuotient.apiHost='api.cquotient.com';
+/* Turn this on to test against Staging Einstein */
+/* CQuotient.useTest= true; */
+CQuotient.useTest = ('true' === 'false');
+CQuotient.initFromCookies = function () {
+	var ca = document.cookie.split(';');
+	for(var i=0;i < ca.length;i++) {
+	  var c = ca[i];
+	  while (c.charAt(0)==' ') c = c.substring(1,c.length);
+	  if (c.indexOf('cqcid=') == 0) {
+		CQuotient.cqcid=c.substring('cqcid='.length,c.length);
+	  } else if (c.indexOf('cquid=') == 0) {
+		  var value = c.substring('cquid='.length,c.length);
+		  if (value) {
+		  	var split_value = value.split("|", 3);
+		  	if (split_value.length > 0) {
+			  CQuotient.cquid=split_value[0];
+		  	}
+		  	if (split_value.length > 1) {
+			  CQuotient.cqeid=split_value[1];
+		  	}
+		  	if (split_value.length > 2) {
+			  CQuotient.cqlid=split_value[2];
+		  	}
+		  }
+	  }
+	}
+}
+CQuotient.getCQCookieId = function () {
+	if(window.CQuotient.cqcid == '')
+		window.CQuotient.initFromCookies();
+	return window.CQuotient.cqcid;
+};
+CQuotient.getCQUserId = function () {
+	if(window.CQuotient.cquid == '')
+		window.CQuotient.initFromCookies();
+	return window.CQuotient.cquid;
+};
+CQuotient.getCQHashedEmail = function () {
+	if(window.CQuotient.cqeid == '')
+		window.CQuotient.initFromCookies();
+	return window.CQuotient.cqeid;
+};
+CQuotient.getCQHashedLogin = function () {
+	if(window.CQuotient.cqlid == '')
+		window.CQuotient.initFromCookies();
+	return window.CQuotient.cqlid;
+};
+CQuotient.trackEventsFromAC = function (/* Object or Array */ events) {
+try {
+	if (Object.prototype.toString.call(events) === "[object Array]") {
+		events.forEach(_trackASingleCQEvent);
+	} else {
+		CQuotient._trackASingleCQEvent(events);
+	}
+} catch(err) {}
+};
+CQuotient._trackASingleCQEvent = function ( /* Object */ event) {
+	if (event && event.id) {
+		if (event.type === dw.ac.EV_PRD_DETAIL) {
+			CQuotient.trackViewProduct( {id:'', alt_id: event.id, type: 'raw_sku'} );
+		} // not handling the other dw.ac.* events currently
+	}
+};
+CQuotient.trackViewProduct = function(/* Object */ cqParamData){
+	var cq_params = {};
+	cq_params.cookieId = CQuotient.getCQCookieId();
+	cq_params.userId = CQuotient.getCQUserId();
+	cq_params.emailId = CQuotient.getCQHashedEmail();
+	cq_params.loginId = CQuotient.getCQHashedLogin();
+	cq_params.product = cqParamData.product;
+	cq_params.realm = cqParamData.realm;
+	cq_params.siteId = cqParamData.siteId;
+	cq_params.instanceType = cqParamData.instanceType;
+	cq_params.locale = CQuotient.locale;
+	
+	if(CQuotient.sendActivity) {
+		CQuotient.sendActivity(CQuotient.clientId, 'viewProduct', cq_params);
+	} else {
+		CQuotient.activities.push({activityType: 'viewProduct', parameters: cq_params});
+	}
+};
+/* ]]> */
+// -->
+</script>
+</head>
+<body>
+<div class="page" data-action="Search-Show" data-querystring="cgid=SmartNIDPlan">
+<div role="main" id="maincontent">
+<input type="hidden" id="showCoveragePage" value="false" />
+<div class="bf category-wrapper">
+<div class="bf__header">
+<div class="bf-header">
+<div class="bf-header__wrapper">
+<div class="bf-header__logo">
+<a href="https://www.quantumfiber.com/">
+<div class="icon icon__logo " title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 362.19"><defs><style>.cls-1{fill:#7b8ee1;}.cls-2{fill:#503296;}.cls-3{fill:#38c6f4;}</style></defs><g id="Logo_Artwork" data-name="Logo Artwork"><path class="cls-1" d="M600.27,272.35h63.57v16.84H619.4v19h43.5V325H619.4v37.17H600.27Z" /><path class="cls-1" d="M704.26,272.35h19.13v89.84H704.26Z" /><path class="cls-1" d="M770,272.35h47.27c17.11,0,25.86,10.91,25.86,22.9,0,11.31-7,18.86-15.49,20.61,9.56,1.48,17.24,10.77,17.24,22.09,0,13.46-9,24.24-26.13,24.24H770Zm43.09,36c6.47,0,10.51-4,10.51-9.7s-4-9.83-10.51-9.83h-24v19.53Zm.68,37.3c7.27,0,11.58-3.9,11.58-10.37,0-5.65-4-10.5-11.58-10.5H789.09v20.87Z" /><path class="cls-1" d="M887,272.35h63.57v16.84H906.09v19H949.6V325H906.09v20.33h44.45v16.84H887Z" /><path class="cls-1" d="M1027.17,330.27h-14v31.92H994V272.35h42c18.72,0,30.17,12.26,30.17,29,0,15.9-10,24.38-19.67,26.67l20.21,34.21h-22Zm6.06-41.08h-20.07v24.24h20.07c7.68,0,13.47-4.58,13.47-12.12S1040.91,289.19,1033.23,289.19Z" /><path class="cls-2" d="M805.83,24.06H760.89V156.27c0,45.57,29.35,74.72,74.91,74.72V186.05c-14.86,0-30-8.79-30-26.82V108.14h30V63.2h-30Z" /><path class="cls-2" d="M348.3,154.43c0,22.34-11.21,31.62-26.07,31.62s-26.07-11.53-26.07-26.82V63.13H251.23v96.1c0,44.65,25,72,64.8,72,17.46,0,37.33-7.74,46.9-19.74,6.22,12,17.73,16.73,27.92,16.73h2.38V63.13H348.3Z" /><path class="cls-2" d="M645.21,136.13c0-22.35,11.2-31.63,26.07-31.63s26.07,11.53,26.07,26.83v96.09h44.93V131.33c0-44.65-25-72-64.81-72-17.46,0-37.32,7.74-46.89,19.75-6.23-12-17.73-16.73-27.92-16.73h-2.39V227.42h44.94Z" /><path class="cls-2" d="M952,154.43c0,22.34-11.21,31.62-26.07,31.62s-26.07-11.53-26.07-26.82V63.13H854.88v96.1c0,44.65,25,72,64.8,72,17.46,0,37.33-7.74,46.9-19.74,6.22,12,17.73,16.73,27.92,16.73h2.38V63.13H952Z" /><path class="cls-2" d="M579.36,62.36H574.7c-12.43,0-25.14,5.94-31.93,15.63-14.5-11.21-32.19-18.42-51-18.42-47.33,0-83.8,38.5-83.8,85.82s36.47,85.82,83.8,85.82c19.18,0,37.2-7.49,51.86-19.07,6.79,9.69,18.64,15.28,31.07,15.28h4.66Zm-42.73,83a40.89,40.89,0,1,1-40.89-40.89A40.93,40.93,0,0,1,536.63,145.39Z" /><path class="cls-3" d="M183.89,227.42A177.58,177.58,0,0,1,144,254.89a118,118,0,0,1,31.57,41.27l43.2-23.76A164.93,164.93,0,0,0,183.89,227.42Z" /><path class="cls-1" d="M144,200A124.53,124.53,0,0,1,88.11,227.1v.64A124.44,124.44,0,0,1,144,254.89a177.58,177.58,0,0,0,39.87-27.47A177.21,177.21,0,0,0,144,200Z" /><path class="cls-2" d="M117.53,0A117.52,117.52,0,0,0,0,117.53C0,179.62,46.3,213,77.63,213c23.11,0,41.08-9.24,48.92-22.89-27,0-76.15-25.8-76.16-72.57a67.12,67.12,0,1,1,134.24,0c0,32.62-16.44,62-40.61,82.41a177.21,177.21,0,0,1,39.87,27.46c30.7-28.08,51.19-66.95,51.19-109.87A117.55,117.55,0,0,0,117.53,0Z" /><path class="cls-2" d="M1017.79,227.42h44.94V136.13c0-22.35,11.2-31.63,26.07-31.63s26.07,11.53,26.07,26.83v96.09h44.93V136.13c0-22.35,11.21-31.63,26.07-31.63s26.07,11.53,26.07,26.83v96.09h44.93V131.33c0-44.65-25-72-64.8-72-18,0-36,7.45-47.37,22.07-11.26-14.19-28.34-22.07-49.71-22.07-17.46,0-37.32,7.74-46.89,19.75-6.23-12-17.73-16.73-27.92-16.73h-2.39Z" /><path class="cls-2" d="M1268.23,86.18a11.58,11.58,0,1,1,6-1.57A11.57,11.57,0,0,1,1268.23,86.18Zm0-2.64a8.86,8.86,0,0,0,4.59-1.18,8.67,8.67,0,0,0,3.19-3.28,9.89,9.89,0,0,0,0-9.37,8.73,8.73,0,0,0-3.19-3.25,9.48,9.48,0,0,0-9.16,0,8.63,8.63,0,0,0-3.21,3.25,9.82,9.82,0,0,0,0,9.37,8.57,8.57,0,0,0,3.21,3.28A8.92,8.92,0,0,0,1268.23,83.54Zm-4.13-3.85V68.58h3.8a5.71,5.71,0,0,1,3.52,1,3.22,3.22,0,0,1,1.26,2.72,3.4,3.4,0,0,1-1.92,3.36l2.53,4.07h-2.81l-2-3.52h-1.82v3.52Zm3.85-8.8h-1.32v3H1268c1.36,0,2-.51,2-1.54S1269.31,70.89,1268,70.89Z" /></g></svg>
+</div>
+</a>
+</div>
+<div class="bf-header__headline">
+<div class="html-slot-container">
+<span class="qf-headline">Congrats! You qualify for Price for Life Internet.</span>
+</div>
+<div class="html-slot-container">
+<span class="qf-headline-small" style="font-size: 18px">Keep your internet service monthly rate for as long as you keep your plan. <br>
+Internet service monthly rate subject to continued plan availability.</span>
+</div>
+</div>
+<div class="bf-header__cta bf-header-user-address">
+<div class="bf-header__tn-wrap">
+<div class="html-slot-container">
+<a class="bf-header__tn-link" href="tel:+1-855-234-5731">
+855-234-5731
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="bf-header__cta bf-header-user-address street-address-user">
+<div class="icon icon__bf-address-change " title>
+<svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM7 9C7 6.24 9.24 4 12 4C14.76 4 17 6.24 17 9C17 11.88 14.12 16.19 12 18.88C9.92 16.21 7 11.85 7 9Z" fill="#503296" /><path d="M12 11.5C13.3807 11.5 14.5 10.3807 14.5 9C14.5 7.61929 13.3807 6.5 12 6.5C10.6193 6.5 9.5 7.61929 9.5 9C9.5 10.3807 10.6193 11.5 12 11.5Z" fill="#503296" /></svg>
+</div>
+<div id="js-bf-edit-address-section" class="bf-header-user-address__text" data-container=".bf-header__cta" data-html="true" data-trigger="click" data-toggle="popover" data-placement="bottom">
+<span class="d-none d-md-block" id="bf-address-edit-desktop">
+8508 19TH AVE NW SEATTLE WA 98117 USA,
+SEATTLE, WA 98117
+</span>
+<span class="d-none" id="bf-address-smartnid">SmartNID eligible</span>
+<span class="d-none" id="bf-address-uploadspeed">null</span>
+<span class="d-none" id="bf-address-downloadspeed">null</span>
+<span class="d-block d-md-none" id="bf-address-edit-mobile">98117</span>
+<span id="bf-edit-address-text" class="d-none">
+8508 19TH AVE NW SEATTLE WA 98117 USA,
+SEATTLE, WA 98117
+<a href="javascript:void(0)" id="js-bf-header-edit-address-button" data-toggle="modal" data-target="#edit-address-modal" class="qf-btn qf-btn-secondary edit-address-button" target="_blank">Edit address</a>
+</span>
+</div>
+<div class="qf-modal modal fade address-edit" id="js-bf-edit-address-modal" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="qf-modal__error modal-content">
+<div class="modal-header">
+<h5 class="modal-title">
+Change Address
+</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">
+<div class="icon icon__close " title="Close">
+<svg viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.1428 10L19.3493 3.79362C20.2169 2.92572 20.2169 1.51882 19.3493 0.650922C18.4811 -0.216974 17.0744 -0.216974 16.2063 0.650922L9.99988 6.8573L3.7937 0.650922C2.92556 -0.216974 1.51864 -0.216974 0.650741 0.650922C-0.216914 1.51882 -0.216914 2.92572 0.650741 3.79362L6.85716 10L0.650741 16.2064C-0.216914 17.0743 -0.216914 18.4812 0.650741 19.3491C1.51889 20.217 2.92556 20.217 3.7937 19.3491L9.99988 13.1429L16.2063 19.3491C17.0742 20.217 18.4811 20.217 19.3493 19.3491C20.2169 18.4812 20.2169 17.0743 19.3493 16.2064L13.1428 10Z" fill="#788791" /></svg>
+</div>
+</span>
+</button>
+</div>
+<div class="modal-body">
+<div class="qf-modal__secondary-header">
+<span>Do you want to change your service address?</span>
+</div>
+<div class="qf-modal__secondary-text text-left">
+If this looks wrong, please correct by clicking the "Update address" button and entering the correct address.
+</div>
+<div class="address-edit__serviceAddress text-left">
+<div class="service-address mt-auto">
+<div class="service-address__wrapper">
+<p class="appointment__time">Service Address</p>
+<span class="service-address__street">
+8508 19TH AVE NW SEATTLE WA 98117 USA
+</span>
+</div>
+<div class="service-address__wrapper">
+<span class="service-address__no-service">
+SEATTLE, WA 98117
+</span>
+</div>
+</div>
+</div>
+</div>
+<div class="modal-footer qf-modal__btns">
+<div class="btn-group d-flex justify-content-center">
+<a href data-dismiss="modal" class="qf-btn qf-btn-secondary">Back</a>
+<a href="/shop" class="qf-btn qf-btn-primary-action qf-edit-address-modal-cta js-btn-purchase">Update address</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<a href="https://www.quantumfiber.com/shop" class="address-change-btn">Change Address</a>
+</div>
+<div class="pt-4 pb-5">
+</div>
+</div>
+</div>
+<div class="bf__main">
+<div class="seamless-wifi-hover-text d-none">
+<div class="content-asset">
+360 WiFi creates a smart mesh network with 360 WiFi pods throughout your home or small business to make sure every device gets the best connection possible.
+</div>
+</div>
+<div class="faster-upload-hover-text d-none">
+<div class="content-asset">
+Comparison as of 10/7/22, based on Quantum Fiber technology with wired upload speeds of up to 940 Mbps to major cable providers' 1GIG cable service over DOCSIS 3.1 technology with upload speeds of 35 Mbps.
+</div>
+</div>
+<div class="faster-upload-gig-hover-text d-none">
+<div class="content-asset">
+Based on the weighted average advertised U.S. data connection download speed of participating Internet Service Providers of 193.9 Mbps. FCC Measuring Fixed Broadband Eleventh Report, December 2021.
+</div>
+</div>
+<div id="qf-tiles" class="option-group search-tiles qf-tile__container">
+<div class="search-tiles__wrapper qf-tile__track">
+
+<script type="text/javascript">//<!--
+/* <![CDATA[ */
+(function(){
+try {
+    if(window.CQuotient) {
+	var cq_params = {};
+	
+	cq_params.cookieId = window.CQuotient.getCQCookieId();
+	cq_params.userId = window.CQuotient.getCQUserId();
+	cq_params.emailId = CQuotient.getCQHashedEmail();
+	cq_params.loginId = CQuotient.getCQHashedLogin();
+	cq_params.accumulate = true;
+	cq_params.products = [{
+	    id: 'C-HSI-FBR-001-500-Mbps-PFL',
+	    sku: ''
+	}];
+	cq_params.categoryId = 'SmartNIDPlan';
+	cq_params.refinements = '[{\"name\":\"Category\",\"value\":\"SmartNIDPlan\"}]';
+	cq_params.personalized = 'false';
+	cq_params.sortingRule = 'sort-category-products';
+	cq_params.imageUUID = '__UNDEFINED__';
+	cq_params.realm = "BGTM";
+	cq_params.siteId = "QFCC";
+	cq_params.instanceType = "prd";
+	cq_params.queryLocale = "default";
+	cq_params.locale = window.CQuotient.locale;
+	
+	if(window.CQuotient.sendActivity)
+	    window.CQuotient.sendActivity(CQuotient.clientId, 'viewCategory', cq_params);
+	else
+	    window.CQuotient.activities.push({
+	    	activityType: 'viewCategory',
+	    	parameters: cq_params
+	    });
+  }
+} catch(err) {}
+})();
+/* ]]> */
+// -->
+</script>
+<script type="text/javascript">//<!--
+/* <![CDATA[ (viewCategoryProduct-active_data.js) */
+(function(){
+try {
+	if (dw.ac) {
+		var search_params = {};
+		search_params.persd = 'false';
+		search_params.refs = '[{\"name\":\"Category\",\"value\":\"SmartNIDPlan\"}]';
+		search_params.sort = 'sort-category-products';
+		search_params.imageUUID = '';
+		search_params.searchID = '018656d6-ec7e-4754-b940-5e3cf809240c';
+		search_params.locale = 'default';
+		search_params.queryLocale = 'default';
+		search_params.showProducts = 'true';
+		dw.ac.applyContext({category: "SmartNIDPlan", searchData: search_params});
+		if (typeof dw.ac._scheduleDataSubmission === "function") {
+			dw.ac._scheduleDataSubmission();
+		}
+	}
+} catch(err) {}
+})();
+/* ]]> */
+// -->
+</script>
+<script type="text/javascript">//<!--
+/* <![CDATA[ (viewProduct-active_data.js) */
+dw.ac._capture({id: "C-HSI-FBR-001-500-Mbps-PFL", type: "searchhit"});
+/* ]]> */
+// -->
+</script>
+<div class="product " data-pid="C-HSI-FBR-001~43" data-pname="Fiber Internet" data-price="$50.00" data-equipment="null" data-style="null" data-variant="Up to 500 Mbps - Price For Life" data-vgid="C-HSI-FBR-001-500-Mbps-PFL" data-minspeed="500.0">
+<div tabindex="0" class="
+    option qf-tile__card
+    
+    js-product-tile
+    " data-product-url="/cat/C-HSI-FBR-001-500-Mbps-PFL.html
+">
+<div class="qf-tile__wrapper">
+<div class="qf-tile__image-wrapper">
+<div class="qf-tile__tile-header no-title">
+<img src="/on/demandware.static/-/Sites-DC_HSI_FIBER-R4-m/default/dwb9037c82/images/product/InternetPlan/plan__500-Mbps.svg" alt="Fiber Internet" title="Fiber Internet" />
+</div>
+<div class="qf-tile__tile-body">
+<div class="qf-tile__price">
+<span class="mp-card__price-nrc">$</span>
+<span class="qf-tile__price-amount">50</span>
+<span class="qf-tile__price-mrc">/mo</span>
+</div>
+<div class="qf-tile__info">
+Taxes and fees apply. 360 WiFi and other equipment lease charges, taxes, and fees are excluded from Price for Life offer and may be increased.
+<a href="javscript:void(0)" class="qf-tile__info_modal-open" data-toggle="modal" data-target="#qf_offer-C-HSI-FBR-001-500-Mbps-PFL">Offer Details.</a>
+<div class="qf-modal modal fade offer-details-sticky" id="qf_offer-C-HSI-FBR-001-500-Mbps-PFL" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="qf-modal__legal modal-content">
+<div class="modal-header">
+<div class="modal-title">
+Fiber Internet speeds up to 500 Mbps – Price for Life
+</div>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">
+<div class="icon icon__close " title="Close">
+<svg viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.1428 10L19.3493 3.79362C20.2169 2.92572 20.2169 1.51882 19.3493 0.650922C18.4811 -0.216974 17.0744 -0.216974 16.2063 0.650922L9.99988 6.8573L3.7937 0.650922C2.92556 -0.216974 1.51864 -0.216974 0.650741 0.650922C-0.216914 1.51882 -0.216914 2.92572 0.650741 3.79362L6.85716 10L0.650741 16.2064C-0.216914 17.0743 -0.216914 18.4812 0.650741 19.3491C1.51889 20.217 2.92556 20.217 3.7937 19.3491L9.99988 13.1429L16.2063 19.3491C17.0742 20.217 18.4811 20.217 19.3493 19.3491C20.2169 18.4812 20.2169 17.0743 19.3493 16.2064L13.1428 10Z" fill="#788791" /></svg>
+</div>
+</span>
+</button>
+</div>
+<div class="modal-body">
+<div class="qf-modal__secondary-text">
+<div class="d-block"> <P> Although our fiber service usually means 100% fiber-optic network to your location, in limited circumstances Quantum Fiber may need to deploy alternative technologies coupled with a non-fiber connection from a certain point (usually the curb) to your location in order to provide the advertised download speeds. </p> <p>Customer speed experiences will vary, particularly when accessing the Internet wirelessly from various devices. Download/upload speed via a wired connection. Internet speeds are not guaranteed due to conditions outside of network control, including customer location, devices, equipment, and access through a wired or wireless connection; see <a href="https://www.quantumfiber.com/legal.html" target="_blank">q.com/legal</a>  for more information. </p> <p>Limited availability. Service and rate in select locations only. <b>Price for Life</b>: Offer available to new and existing customers located in qualifying markets and cannot be combined with other promotions or offers. Offer not available with Instant Internet service, Instant 360 WiFi service, or at bulk service properties. Limited time offer. Customer must remain in good standing and Price for Life offer terminates if customer cancels or changes their internet plan or account in any manner, including change of address (even if plan is available), change to internet service or speed, and service suspension (including Pause Program or non-payment) or disconnection. Other than internet services covered by Price for Life offer, your monthly rates for any other services, leased equipment, taxes, or fees are not guaranteed and may increase during the time of your service. Offer may terminate upon network technology changes or upgrades. Paperless billing required. Month-to-month (referred to as “no contract”) service means no term commitment and may be cancelled at any time without an early termination fee but customer must accept Internet Subscriber Agreement prior to using service (see <a href="https://www.quantumfiber.com/legal.html" target="_blank">q.com/legal</a> ). <b>Wireless Service</b>: 360 WiFi is included with the internet service at no monthly charge for an initial period, but is excluded from the Price for Life offer and the monthly lease charge may be increased with prior notice. The number of pods provided (up to 4 pods max.) will be determined by technician during technician installation. <b>Security features will not work if customer does not plug pods in or plugs devices directly into modem.  Installation</b>: Offer includes technician installation at customer’s eligible location. <b>Construction</b>: For certain, new Internet installations, construction charges may apply (“Construction Charges”).  Quantum Fiber will absorb the first $1,500 of the Construction Charges; customer will be responsible for Construction Charges to the extent they exceed $1,500, usually no more than an additional $2,000. Customer will be contacted prior to install for approval to proceed with order if Construction Charges apply. See <a href="https://www.quantumfiber.com/legal.html" target="_blank">q.com/legal</a>  for taxes and fees. Additional restrictions may apply. <b>Prepayment</b>: Service will begin on the date your order is completed and full payment is processed through your choice of debit card, credit card, or other prepay service available with your subscription. Each month following, a recurring e-commerce transaction for your service will be processed as service automatically renews monthly until cancelled by customer.</p> </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="qf-tile__marketing_no-blurb"></div>
+<div class="qf-tile__marketing">
+<ul>
+<li>Built for fast downloads and multiple video chats</li>
+<li><span class="reliability">99.9% reliability</span></li>
+<li>Seamless <span class="seamless-wifi"> 360 WiFi </span>coverage at no monthly charge for initial period.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<a class="qf-tile__details js-more-details" href="javascript:void(0)" data-toggle="modal" data-target="#qf_C-HSI-FBR-001-500-Mbps-PFL">
+<div class="icon icon__expand " title>
+<svg viewbox="0 0 8 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.0898433 2.31723L4.66984 6.90723L0.0898437 11.4972L1.49984 12.9072L7.49984 6.90723L1.49984 0.907227L0.0898433 2.31723Z" fill="#503296" /></svg>
+</div>
+<span class="qf-tile__details-text">More details</span>
+<div class="qf-modal modal fade more-details-sticky" id="qf_C-HSI-FBR-001-500-Mbps-PFL" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="qf-modal__product modal-content container-fluid">
+<div class="modal-header row">
+<div class="qf-modal__product__header-icon col-12">
+<img src="/on/demandware.static/-/Sites-DC_HSI_FIBER-R4-m/default/dwb9037c82/images/product/InternetPlan/plan__500-Mbps.svg" alt="Fiber Internet" title="Fiber Internet" />
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">
+<div class="icon icon__close " title="Close">
+<svg viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.1428 10L19.3493 3.79362C20.2169 2.92572 20.2169 1.51882 19.3493 0.650922C18.4811 -0.216974 17.0744 -0.216974 16.2063 0.650922L9.99988 6.8573L3.7937 0.650922C2.92556 -0.216974 1.51864 -0.216974 0.650741 0.650922C-0.216914 1.51882 -0.216914 2.92572 0.650741 3.79362L6.85716 10L0.650741 16.2064C-0.216914 17.0743 -0.216914 18.4812 0.650741 19.3491C1.51889 20.217 2.92556 20.217 3.7937 19.3491L9.99988 13.1429L16.2063 19.3491C17.0742 20.217 18.4811 20.217 19.3493 19.3491C20.2169 18.4812 20.2169 17.0743 19.3493 16.2064L13.1428 10Z" fill="#788791" /></svg>
+</div>
+</span>
+</button>
+</div>
+</div>
+<div class="modal-body">
+<div class="row">
+<div class="qf-modal__product__list col-md-6">
+<div class="modal-title">
+<div class="icon icon__computer " title>
+<svg viewbox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg"><g><path d="M14.166.424H1.336V8.52h12.83V.424Z" stroke="#503296" stroke-miterlimit="10" /><path d="M9.679 9.99v.53H5.975v-.53H0v1.06h15.5V9.99H9.679Z" fill="#503296" /></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h15.5v11.053H0z" /></clipPath></defs></svg>
+</div>
+Up to 500 Mbps - Price For Life</div>
+<ul>
+<li>Built for fast downloads and multiple video chats</li>
+<li>HD streaming in 4K on 6+ devices</li>
+<li>Seamless <span class="seamless-wifi"> 360 WiFi </span> coverage included</li>
+<li>No promotional rates</li>
+<li>Seamless <span class="seamless-wifi"> 360 WiFi </span>coverage at no monthly charge for initial period.</li>
+</ul>
+</div>
+<div class="qf-modal__product__table col-md-6">
+<div class="modal-title">
+<div class="icon icon__speed " title>
+<svg viewbox="0 0 23 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m18.927 14.379-3.374-2.793A1.493 1.493 0 0 0 13.35 9.9c-.753-.577-1.442-1.097-1.442-1.097l-.72.416v.866l1.46.917a1.488 1.488 0 0 0 2.297 1.426l3.982 1.952Z" fill="#503296" /><path d="M6.266 10.969v.332a7.875 7.875 0 0 0 1.136 4.095M8.459 5.831a7.923 7.923 0 0 0-2.096 4.247" stroke="#503296" stroke-miterlimit="10" /><path d="M13.558 3.397a7.9 7.9 0 0 0-4.453 1.826l4.453-1.826Z" fill="#503296" /><path d="M13.558 3.397a7.9 7.9 0 0 0-4.453 1.826" stroke="#503296" stroke-miterlimit="10" /><path d="M19.296 5.223a7.875 7.875 0 0 0-4.694-1.84l4.694 1.84Z" fill="#503296" /><path d="M19.296 5.223a7.875 7.875 0 0 0-4.694-1.84M22.031 10.08a7.9 7.9 0 0 0-2.11-4.274" stroke="#503296" stroke-miterlimit="10" /><path d="M21.04 15.115a7.91 7.91 0 0 0 .975-3.814v-.332" fill="#503296" /><path d="M21.04 15.115a7.91 7.91 0 0 0 .975-3.814v-.332" stroke="#503296" stroke-miterlimit="10" /><path d="m21.121 15.163.028-.048-.028.048Z" fill="#503296" /></svg>
+</div>
+Speed</div>
+<table class="table table-borderless">
+<tbody>
+<tr>
+<td>DOWNLOAD SPEED:</td>
+<td>
+Up to 500 Mbps - Price For Life
+</td>
+</tr>
+<tr>
+<td>UPLOAD SPEED:</td>
+<td>
+Up to 500 Mbps
+</td>
+</tr>
+<tr>
+<td>DATA CAPS:</td>
+<td>Unlimited data</td>
+</tr>
+<tr>
+<td>TECHNOLOGY:</td>
+<td>Fiber</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="row mt-5">
+<div class="qf-modal__product__table col-md-6">
+<div class="modal-title">
+<div class="icon icon__price " title>
+<svg viewbox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g stroke="#503296" stroke-miterlimit="10"><path d="M11.503 4.403v10.689H.398V.4h6.934l4.171 4.003Z" stroke-width=".8" /><path d="M5.195 8.345a1.813 1.813 0 0 1-1.523-1.702 1.741 1.741 0 0 1 1.523-1.619V4.021h.846v1.003a2.515 2.515 0 0 1 1.693 1.051l-.592.52c-.533-.605-.787-.763-1.099-.8v1.981a1.896 1.896 0 0 1 1.835 1.811 1.794 1.794 0 0 1-1.835 1.715v.992h-.848v-1.003a2.34 2.34 0 0 1-1.765-1.194l.666-.483a1.666 1.666 0 0 0 1.1.917V8.345Zm0-2.56a.904.904 0 0 0 0 1.751V5.784Zm.846 4.746a.99.99 0 0 0 .989-.965 1.072 1.072 0 0 0-.99-.979v1.944Z" fill="#503296" stroke-width=".133" /></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h11.905v15.492H0z" /></clipPath></defs></svg>
+</div>
+Pricing</div>
+<table class="table table-borderless">
+<tbody>
+<tr>
+<td>PRICING:</td>
+<td>$50.00/mo.</td>
+</tr>
+<tr>
+<td>TAXES:</td>
+<td>Additional taxes may apply</td>
+</tr>
+<tr>
+<td>PRE-PAYMENT:</td>
+<td>Required monthly</td>
+</tr>
+<tr>
+<td>CONTRACT:</td>
+<td>No contract</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="details__item col-md-6">
+<img class="details__image" src="/on/demandware.static/-/Sites-DC_HSI_FIBER-R4-m/default/dwb9037c82/images/product/InternetPlan/plan__500-Mbps.svg" alt="Fiber Internet" title="Fiber Internet" />
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+
+<script type="text/javascript">//<!--
+/* <![CDATA[ */
+(function(){
+try {
+    if(window.CQuotient) {
+	var cq_params = {};
+	
+	cq_params.cookieId = window.CQuotient.getCQCookieId();
+	cq_params.userId = window.CQuotient.getCQUserId();
+	cq_params.emailId = CQuotient.getCQHashedEmail();
+	cq_params.loginId = CQuotient.getCQHashedLogin();
+	cq_params.accumulate = true;
+	cq_params.products = [{
+	    id: 'C-HSI-FBR-001-940-Mbps-PFL',
+	    sku: ''
+	}];
+	cq_params.categoryId = 'SmartNIDPlan';
+	cq_params.refinements = '[{\"name\":\"Category\",\"value\":\"SmartNIDPlan\"}]';
+	cq_params.personalized = 'false';
+	cq_params.sortingRule = 'sort-category-products';
+	cq_params.imageUUID = '__UNDEFINED__';
+	cq_params.realm = "BGTM";
+	cq_params.siteId = "QFCC";
+	cq_params.instanceType = "prd";
+	cq_params.queryLocale = "default";
+	cq_params.locale = window.CQuotient.locale;
+	
+	if(window.CQuotient.sendActivity)
+	    window.CQuotient.sendActivity(CQuotient.clientId, 'viewCategory', cq_params);
+	else
+	    window.CQuotient.activities.push({
+	    	activityType: 'viewCategory',
+	    	parameters: cq_params
+	    });
+  }
+} catch(err) {}
+})();
+/* ]]> */
+// -->
+</script>
+<script type="text/javascript">//<!--
+/* <![CDATA[ (viewCategoryProduct-active_data.js) */
+(function(){
+try {
+	if (dw.ac) {
+		var search_params = {};
+		search_params.persd = 'false';
+		search_params.refs = '[{\"name\":\"Category\",\"value\":\"SmartNIDPlan\"}]';
+		search_params.sort = 'sort-category-products';
+		search_params.imageUUID = '';
+		search_params.searchID = '018656d6-ec7e-4754-b940-5e3cf809240c';
+		search_params.locale = 'default';
+		search_params.queryLocale = 'default';
+		search_params.showProducts = 'true';
+		dw.ac.applyContext({category: "SmartNIDPlan", searchData: search_params});
+		if (typeof dw.ac._scheduleDataSubmission === "function") {
+			dw.ac._scheduleDataSubmission();
+		}
+	}
+} catch(err) {}
+})();
+/* ]]> */
+// -->
+</script>
+<script type="text/javascript">//<!--
+/* <![CDATA[ (viewProduct-active_data.js) */
+dw.ac._capture({id: "C-HSI-FBR-001-940-Mbps-PFL", type: "searchhit"});
+/* ]]> */
+// -->
+</script>
+<div class="product selected" data-pid="C-HSI-FBR-001~47" data-pname="Fiber Internet" data-price="$75.00" data-equipment="null" data-style="null" data-variant="Up to 940 Mbps - Price For Life" data-vgid="C-HSI-FBR-001-940-Mbps-PFL" data-minspeed="940.0">
+<div tabindex="0" class="
+    option qf-tile__card
+    selected
+    js-product-tile
+    " data-product-url="/cat/C-HSI-FBR-001-940-Mbps-PFL.html
+">
+<div class="qf-tile__wrapper">
+<div class="qf-tile__image-wrapper">
+<div class="grid-label">
+<div class="grid-label__inner">
+Best Value
+</div>
+</div>
+<div class="qf-tile__tile-header no-title">
+<img src="/on/demandware.static/-/Sites-DC_HSI_FIBER-R4-m/default/dwd13e2797/images/product/InternetPlan/plan__940-Mbps.svg" alt="Fiber Internet" title="Fiber Internet" />
+</div>
+<div class="qf-tile__tile-body">
+<div class="qf-tile__price">
+<span class="mp-card__price-nrc">$</span>
+<span class="qf-tile__price-amount">75</span>
+<span class="qf-tile__price-mrc">/mo</span>
+</div>
+<div class="qf-tile__info">
+Taxes and fees apply. 360 WiFi and other equipment lease charges, taxes, and fees are excluded from Price for Life offer and may be increased.
+<a href="javscript:void(0)" class="qf-tile__info_modal-open" data-toggle="modal" data-target="#qf_offer-C-HSI-FBR-001-940-Mbps-PFL">Offer Details.</a>
+<div class="qf-modal modal fade offer-details-sticky" id="qf_offer-C-HSI-FBR-001-940-Mbps-PFL" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="qf-modal__legal modal-content">
+<div class="modal-header">
+<div class="modal-title">
+Fiber Internet speeds up to 940 Mbps – Price for Life
+</div>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">
+<div class="icon icon__close " title="Close">
+<svg viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.1428 10L19.3493 3.79362C20.2169 2.92572 20.2169 1.51882 19.3493 0.650922C18.4811 -0.216974 17.0744 -0.216974 16.2063 0.650922L9.99988 6.8573L3.7937 0.650922C2.92556 -0.216974 1.51864 -0.216974 0.650741 0.650922C-0.216914 1.51882 -0.216914 2.92572 0.650741 3.79362L6.85716 10L0.650741 16.2064C-0.216914 17.0743 -0.216914 18.4812 0.650741 19.3491C1.51889 20.217 2.92556 20.217 3.7937 19.3491L9.99988 13.1429L16.2063 19.3491C17.0742 20.217 18.4811 20.217 19.3493 19.3491C20.2169 18.4812 20.2169 17.0743 19.3493 16.2064L13.1428 10Z" fill="#788791" /></svg>
+</div>
+</span>
+</button>
+</div>
+<div class="modal-body">
+<div class="qf-modal__secondary-text">
+<div class="d-block"> <p>Although our fiber service usually means 100% fiber-optic network to your location, in limited circumstances Quantum Fiber may need to deploy alternative technologies coupled with a non-fiber connection from a certain point (usually the curb) to your location in order to provide the advertised download speeds. </p> <p>Customer speed experiences will vary, particularly when accessing the Internet wirelessly from various devices. Download/upload speed via a wired connection. Internet speeds are not guaranteed due to conditions outside of network control, including customer location, devices, equipment, and access through a wired or wireless connection; see <a href="https://www.quantumfiber.com/legal.html" target="_blank">q.com/legal</a>  for more information. </p> <p>Limited availability. Service and rate in select locations only. Price for Life: Offer available to new and existing customers located in qualifying markets and cannot be combined with other promotions or offers. Offer not available with Instant Internet service, Instant 360 WiFi service, or at bulk service properties. Limited time offer. Customer must remain in good standing and Price for Life offer terminates if customer cancels or changes their internet plan or account in any manner, including change of address (even if plan is available), change to internet service or speed, and service suspension (including Pause Program or non-payment) or disconnection. Other than internet services covered by Price for Life offer, your monthly rates for any other services, leased equipment, taxes, or fees are not guaranteed and may increase during the time of your service. Offer may terminate upon network technology changes or upgrades. Paperless billing required. Month-to-month (referred to as “no contract”) service means no term commitment and may be cancelled at any time without an early termination fee but customer must accept Internet Subscriber Agreement prior to using service (see <a href="https://www.quantumfiber.com/legal.html" target="_blank">q.com/legal</a> l). Wireless Service: 360 WiFi is included with the internet service at no monthly charge for an initial period, but is excluded from the Price for Life offer and the monthly lease charge may be increased with prior notice. The number of pods provided (up to 4 pods max.) will be determined by technician during technician installation. Security features will not work if customer does not plug pods in or plugs devices directly into modem.  Installation: Offer includes technician installation at customer’s eligible location. Construction: For certain, new Internet installations, construction charges may apply (“Construction Charges”).  Quantum Fiber will absorb the first $1,500 of the Construction Charges; customer will be responsible for Construction Charges to the extent they exceed $1,500, usually no more than an additional $2,000. Customer will be contacted prior to install for approval to proceed with order if Construction Charges apply. See <a href="https://www.quantumfiber.com/legal.html" target="_blank">q.com/legal</a>  for taxes and fees. Additional restrictions may apply. Prepayment: Service will begin on the date your order is completed and full payment is processed through your choice of debit card, credit card, or other prepay service available with your subscription. Each month following, a recurring e-commerce transaction for your service will be processed as service automatically renews monthly until cancelled by customer. </p> </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="qf-tile__marketing_no-blurb"></div>
+<div class="qf-tile__marketing">
+<ul>
+<li><span class="faster-upload">20X faster </span> upload speed than cable</li>
+<li><span class="reliability">99.9% reliability</span></li>
+<li>Seamless <span class="seamless-wifi"> 360 WiFi </span> coverage at no monthly charge for initial period.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<a class="qf-tile__details js-more-details" href="javascript:void(0)" data-toggle="modal" data-target="#qf_C-HSI-FBR-001-940-Mbps-PFL">
+<div class="icon icon__expand " title>
+<svg viewbox="0 0 8 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.0898433 2.31723L4.66984 6.90723L0.0898437 11.4972L1.49984 12.9072L7.49984 6.90723L1.49984 0.907227L0.0898433 2.31723Z" fill="#503296" /></svg>
+</div>
+<span class="qf-tile__details-text">More details</span>
+<div class="qf-modal modal fade more-details-sticky" id="qf_C-HSI-FBR-001-940-Mbps-PFL" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="qf-modal__product modal-content container-fluid">
+<div class="modal-header row">
+<div class="qf-modal__product__header-icon col-12">
+<img src="/on/demandware.static/-/Sites-DC_HSI_FIBER-R4-m/default/dwd13e2797/images/product/InternetPlan/plan__940-Mbps.svg" alt="Fiber Internet" title="Fiber Internet" />
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">
+<div class="icon icon__close " title="Close">
+<svg viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.1428 10L19.3493 3.79362C20.2169 2.92572 20.2169 1.51882 19.3493 0.650922C18.4811 -0.216974 17.0744 -0.216974 16.2063 0.650922L9.99988 6.8573L3.7937 0.650922C2.92556 -0.216974 1.51864 -0.216974 0.650741 0.650922C-0.216914 1.51882 -0.216914 2.92572 0.650741 3.79362L6.85716 10L0.650741 16.2064C-0.216914 17.0743 -0.216914 18.4812 0.650741 19.3491C1.51889 20.217 2.92556 20.217 3.7937 19.3491L9.99988 13.1429L16.2063 19.3491C17.0742 20.217 18.4811 20.217 19.3493 19.3491C20.2169 18.4812 20.2169 17.0743 19.3493 16.2064L13.1428 10Z" fill="#788791" /></svg>
+</div>
+</span>
+</button>
+</div>
+</div>
+<div class="modal-body">
+<div class="row">
+<div class="qf-modal__product__list col-md-6">
+<div class="modal-title">
+<div class="icon icon__computer " title>
+<svg viewbox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg"><g><path d="M14.166.424H1.336V8.52h12.83V.424Z" stroke="#503296" stroke-miterlimit="10" /><path d="M9.679 9.99v.53H5.975v-.53H0v1.06h15.5V9.99H9.679Z" fill="#503296" /></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h15.5v11.053H0z" /></clipPath></defs></svg>
+</div>
+Up to 940 Mbps - Price For Life</div>
+<ul>
+<li><span>20X </span>faster upload speed than cable*</li>
+<li><span>Stream </span>in 4K on 6+ devices</li>
+<li><span>Seamless</span> 360 WiFi coverage included</li>
+<li>Gaming download: 13 minutes</li>
+<li>1-hour 4K Video download: 11 seconds</li>
+<li>No promotional rates</li>
+<li>Seamless <span class="seamless-wifi"> 360 WiFi </span>coverage at no monthly charge for initial period.</li>
+</ul>
+</div>
+<div class="qf-modal__product__table col-md-6">
+<div class="modal-title">
+<div class="icon icon__speed " title>
+<svg viewbox="0 0 23 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m18.927 14.379-3.374-2.793A1.493 1.493 0 0 0 13.35 9.9c-.753-.577-1.442-1.097-1.442-1.097l-.72.416v.866l1.46.917a1.488 1.488 0 0 0 2.297 1.426l3.982 1.952Z" fill="#503296" /><path d="M6.266 10.969v.332a7.875 7.875 0 0 0 1.136 4.095M8.459 5.831a7.923 7.923 0 0 0-2.096 4.247" stroke="#503296" stroke-miterlimit="10" /><path d="M13.558 3.397a7.9 7.9 0 0 0-4.453 1.826l4.453-1.826Z" fill="#503296" /><path d="M13.558 3.397a7.9 7.9 0 0 0-4.453 1.826" stroke="#503296" stroke-miterlimit="10" /><path d="M19.296 5.223a7.875 7.875 0 0 0-4.694-1.84l4.694 1.84Z" fill="#503296" /><path d="M19.296 5.223a7.875 7.875 0 0 0-4.694-1.84M22.031 10.08a7.9 7.9 0 0 0-2.11-4.274" stroke="#503296" stroke-miterlimit="10" /><path d="M21.04 15.115a7.91 7.91 0 0 0 .975-3.814v-.332" fill="#503296" /><path d="M21.04 15.115a7.91 7.91 0 0 0 .975-3.814v-.332" stroke="#503296" stroke-miterlimit="10" /><path d="m21.121 15.163.028-.048-.028.048Z" fill="#503296" /></svg>
+</div>
+Speed</div>
+<table class="table table-borderless">
+<tbody>
+<tr>
+<td>DOWNLOAD SPEED:</td>
+<td>
+Up to 940 Mbps - Price For Life
+*
+</td>
+</tr>
+<tr>
+<td>UPLOAD SPEED:</td>
+<td>
+up to 940 Mbps
+*
+</td>
+</tr>
+<tr>
+<td>DATA CAPS:</td>
+<td>Unlimited data</td>
+</tr>
+</tbody>
+</table>
+<span class="qf-modal__product-disclaimer">*Speeds are not guaranteed. Results from speed tests will vary, especially when other devices or applications are in use or when testing from a wireless device.</span>
+</div>
+</div>
+<div class="row mt-5">
+<div class="qf-modal__product__table col-md-6">
+<div class="modal-title">
+<div class="icon icon__price " title>
+<svg viewbox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g stroke="#503296" stroke-miterlimit="10"><path d="M11.503 4.403v10.689H.398V.4h6.934l4.171 4.003Z" stroke-width=".8" /><path d="M5.195 8.345a1.813 1.813 0 0 1-1.523-1.702 1.741 1.741 0 0 1 1.523-1.619V4.021h.846v1.003a2.515 2.515 0 0 1 1.693 1.051l-.592.52c-.533-.605-.787-.763-1.099-.8v1.981a1.896 1.896 0 0 1 1.835 1.811 1.794 1.794 0 0 1-1.835 1.715v.992h-.848v-1.003a2.34 2.34 0 0 1-1.765-1.194l.666-.483a1.666 1.666 0 0 0 1.1.917V8.345Zm0-2.56a.904.904 0 0 0 0 1.751V5.784Zm.846 4.746a.99.99 0 0 0 .989-.965 1.072 1.072 0 0 0-.99-.979v1.944Z" fill="#503296" stroke-width=".133" /></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h11.905v15.492H0z" /></clipPath></defs></svg>
+</div>
+Pricing</div>
+<table class="table table-borderless">
+<tbody>
+<tr>
+<td>PRICING:</td>
+<td>$75.00/mo.</td>
+</tr>
+<tr>
+<td>TAXES:</td>
+<td>Additional taxes may apply</td>
+</tr>
+<tr>
+<td>PRE-PAYMENT:</td>
+<td>Required monthly</td>
+</tr>
+<tr>
+<td>CONTRACT:</td>
+<td>No annual contract</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="details__item col-md-6">
+<img class="details__image" src="/on/demandware.static/-/Sites-DC_HSI_FIBER-R4-m/default/dwd13e2797/images/product/InternetPlan/plan__940-Mbps.svg" alt="Fiber Internet" title="Fiber Internet" />
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="qf-modal modal fade" id="qf-modal-byo" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="qf-modal__legal modal-content">
+<div class="modal-header">
+<div class="modal-title">
+Before you go...
+</div>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">
+<div class="icon icon__close " title="Close">
+<svg viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.1428 10L19.3493 3.79362C20.2169 2.92572 20.2169 1.51882 19.3493 0.650922C18.4811 -0.216974 17.0744 -0.216974 16.2063 0.650922L9.99988 6.8573L3.7937 0.650922C2.92556 -0.216974 1.51864 -0.216974 0.650741 0.650922C-0.216914 1.51882 -0.216914 2.92572 0.650741 3.79362L6.85716 10L0.650741 16.2064C-0.216914 17.0743 -0.216914 18.4812 0.650741 19.3491C1.51889 20.217 2.92556 20.217 3.7937 19.3491L9.99988 13.1429L16.2063 19.3491C17.0742 20.217 18.4811 20.217 19.3493 19.3491C20.2169 18.4812 20.2169 17.0743 19.3493 16.2064L13.1428 10Z" fill="#788791" /></svg>
+</div>
+</span>
+</button>
+</div>
+<div class="modal-body">
+<div class="qf-modal__secondary-text">
+<div> <p>Using a Quantum Fiber provided modem will allow you to get the most out of your Quantum Fiber service. If you want to use a different modem though, we recommend using an approved Quantum Fiber compatible modem. The compatible modems that will work with your Quantum Fiber service are listed below.</p> <p>If your modem is not a compatible modem you may experience performance issues with your service and you will be responsible for any troubleshooting. If you have questions, please chat with a Fiber Success Agent.</p> <b><u>A Third-Party Router must support:</u></b> <ul> <li>1 Gps Ethernet WAN port</li> <li>DHCP to obtain WAN IP Address</li> <li>Firewall support (recommended)</li> </ul> <b><u>Maximum throughput that meets your purchased speed Wireless Access Point selection to support:</u></b> <ul> <li>Latest WiFi technologies that are also available in your wireless clients (at least 2x2 radio with 802.11AC and/or 802.11AX)</li> <li>Accurate auto-channel selection</li> <li>Ethernet port must forward packets between LAN and WAN, at the same rate as purchased speed</li> </ul> <b><u>Use of your own device will impact access to features:</u></b> <ul> <li>Security Features such as malware protection, antivirus, and content protection</li> <li>Access control to allow or block certain devices from connecting at certain times</li> <li>Wireless Optimization, including Dynamic Channel Optimization and Band Steering</li> <li>Technical support for troubleshooting</li> <li>Pro-active monitoring of your service above the physical layer</li> </ul> <p>Are you sure you want to pass up on using a Quantum Fiber provided modem?</p> </div>
+<div class="btn-group">
+<button type="button" class="qf-btn qf-btn-secondary" data-dismiss="modal">Cancel</button>
+<a href="javascript:void(0)" id="proceed-btn" class="qf-btn qf-btn-primary-action" data-dismiss="modal">Proceed</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<input type="hidden" name="cgid" value="SmartNIDPlan" />
+<input type="hidden" class="add-to-cart-url" value="/on/demandware.store/Sites-QFCC-Site/default/Cart-AddProduct">
+
+<input type="hidden" class="wifi-pods-url" value="/shop/coverage">
+</div>
+<div class="category-wrapper__privacy label-disclaimer">
+</div>
+<div class="category-wrapper-legal-dislaimer">
+<div class="qf-modal modal fade" id="as" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="qf-modal__legal modal-content">
+<div class="modal-header">
+<div class="modal-title">
+</div>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">
+<div class="icon icon__close " title="Close">
+<svg viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.1428 10L19.3493 3.79362C20.2169 2.92572 20.2169 1.51882 19.3493 0.650922C18.4811 -0.216974 17.0744 -0.216974 16.2063 0.650922L9.99988 6.8573L3.7937 0.650922C2.92556 -0.216974 1.51864 -0.216974 0.650741 0.650922C-0.216914 1.51882 -0.216914 2.92572 0.650741 3.79362L6.85716 10L0.650741 16.2064C-0.216914 17.0743 -0.216914 18.4812 0.650741 19.3491C1.51889 20.217 2.92556 20.217 3.7937 19.3491L9.99988 13.1429L16.2063 19.3491C17.0742 20.217 18.4811 20.217 19.3493 19.3491C20.2169 18.4812 20.2169 17.0743 19.3493 16.2064L13.1428 10Z" fill="#788791" /></svg>
+</div>
+</span>
+</button>
+</div>
+<div class="modal-body">
+<div class="qf-modal__secondary-text">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="pt-2 pb-5">
+<div class="category-wrapper__privacy label-disclaimer">
+</div>
+<div class="category-wrapper__privacy category-wrapper__agreement-legal d-none">
+<div class="html-slot-container">
+<div class="qf-legal">Based on network uptime or availability. </div>
+</div>
+</div>
+</div>
+<div class="bf__btns">
+<div class="btn-group">
+<a href="https://www.quantumfiber.com/shop" id="plp__back" class="qf-btn qf-btn-secondary">Back</a>
+<a href="https://www.quantumfiber.com/shop/smartNIDWifi" id="plp__continue" class="qf-btn qf-btn-primary-action js-add-prod-to-cart" data-url disabled>Continue</a>
+</div>
+</div>
+</div>
+<span id="bftsinfo" aria-hidden data-is-top-category="true" data-bfts-url="/on/demandware.store/Sites-QFCC-Site/default/BFTS-ProductsEntry"></span>
+<span id="partner-info" data-is-partner-flow="false" data-is-px-purl-payment="false" data-is-px-iframe-payment="false"></span>
+</div>
+</div>
+<div class="error-messaging"></div>
+<div class="modal-background"></div>
+<!--[if lt IE 10]>
+<script>//common/scripts.isml</script>
+<script defer type="text/javascript" src="/on/demandware.static/Sites-QFCC-Site/-/default/v1707242584047/js/main.js"></script>
+
+    
+        <script defer type="text/javascript" src="/on/demandware.static/Sites-QFCC-Site/-/default/v1707242584047/js/search.js"
+            
+            >
+        </script>
+    
+
+    
+        <script defer type="text/javascript" src="/on/demandware.static/Sites-QFCC-Site/-/default/v1707242584047/js/uiLibrary.js"
+            
+            >
+        </script>
+    
+
+
+<![endif]-->
+<span class="PLATFORM_CONSENT_TRACKING_DISABLED"></span>
+<div class="qf-modal modal fade" id="qfModalTimeExpired" tabindex="-1" role="dialog" aria-hidden="true" data-appointment-expired-time="1800000" data-redirect-url="/shop/install" data-validatesession-url="/on/demandware.store/Sites-QFCC-Site/default/Appointment-ValidateSession">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="qf-modal__error modal-content">
+
+<div class="modal-header">
+<h5 class="modal-title">
+Time Expired
+</h5>
+<a href="/shop/install" class="close" aria-label="Close">
+<span aria-hidden="true">
+<div class="icon icon__close " title="Close">
+<svg viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.1428 10L19.3493 3.79362C20.2169 2.92572 20.2169 1.51882 19.3493 0.650922C18.4811 -0.216974 17.0744 -0.216974 16.2063 0.650922L9.99988 6.8573L3.7937 0.650922C2.92556 -0.216974 1.51864 -0.216974 0.650741 0.650922C-0.216914 1.51882 -0.216914 2.92572 0.650741 3.79362L6.85716 10L0.650741 16.2064C-0.216914 17.0743 -0.216914 18.4812 0.650741 19.3491C1.51889 20.217 2.92556 20.217 3.7937 19.3491L9.99988 13.1429L16.2063 19.3491C17.0742 20.217 18.4811 20.217 19.3493 19.3491C20.2169 18.4812 20.2169 17.0743 19.3493 16.2064L13.1428 10Z" fill="#788791" /></svg>
+</div>
+</span>
+</a>
+</div>
+<div class="modal-body">
+<div class="qf-modal__secondary-header"> <span>Appointment times are held for 30 minutes.</span> </div> <div class="qf-modal__secondary-text"> <p>We can only hold time slots for appointments for 30 minutes at a time. Please select a new timeslot for your appointment.</p> </div>
+</div>
+<div class="modal-footer qf-modal__btns">
+<div class="btn-group">
+<a href="/shop/install" class="qf-btn qf-btn-primary-action">Select New Time</a>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+<div class="qf-modal modal fade" id="qfModalSessionExpired" tabindex="-1" role="dialog" aria-hidden="true" data-redirect-url="/shop">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="qf-modal__error modal-content">
+
+<div class="modal-header">
+<h5 class="modal-title">
+Session Expired
+</h5>
+<a href="/shop" class="close" aria-label="Close">
+<span aria-hidden="true">
+<div class="icon icon__close " title="Close">
+<svg viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.1428 10L19.3493 3.79362C20.2169 2.92572 20.2169 1.51882 19.3493 0.650922C18.4811 -0.216974 17.0744 -0.216974 16.2063 0.650922L9.99988 6.8573L3.7937 0.650922C2.92556 -0.216974 1.51864 -0.216974 0.650741 0.650922C-0.216914 1.51882 -0.216914 2.92572 0.650741 3.79362L6.85716 10L0.650741 16.2064C-0.216914 17.0743 -0.216914 18.4812 0.650741 19.3491C1.51889 20.217 2.92556 20.217 3.7937 19.3491L9.99988 13.1429L16.2063 19.3491C17.0742 20.217 18.4811 20.217 19.3493 19.3491C20.2169 18.4812 20.2169 17.0743 19.3493 16.2064L13.1428 10Z" fill="#788791" /></svg>
+</div>
+</span>
+</a>
+</div>
+<div class="modal-body">
+<div class="qf-modal__secondary-header"> <span>Oops! It looks like your session has expired.</span> </div> <div class="qf-modal__secondary-text"> <p>We apologize for the inconvenience, but we’ll take you to the beginning so you can make your selections again.</p> </div>
+</div>
+<div class="modal-footer qf-modal__btns">
+<div class="btn-group">
+<a href="/shop" class="qf-btn qf-btn-primary-action">Continue</a>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+<div class="qf-modal modal fade" id="qf-modal-error" tabindex="-1" role="dialog" aria-hidden="true" data-failed-to-load-timeout="55000">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="qf-modal__error modal-content">
+<div class="modal-header">
+<div class="modal-title">
+Failed to Load
+</div>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">
+<div class="icon icon__close " title="Close">
+<svg viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.1428 10L19.3493 3.79362C20.2169 2.92572 20.2169 1.51882 19.3493 0.650922C18.4811 -0.216974 17.0744 -0.216974 16.2063 0.650922L9.99988 6.8573L3.7937 0.650922C2.92556 -0.216974 1.51864 -0.216974 0.650741 0.650922C-0.216914 1.51882 -0.216914 2.92572 0.650741 3.79362L6.85716 10L0.650741 16.2064C-0.216914 17.0743 -0.216914 18.4812 0.650741 19.3491C1.51889 20.217 2.92556 20.217 3.7937 19.3491L9.99988 13.1429L16.2063 19.3491C17.0742 20.217 18.4811 20.217 19.3493 19.3491C20.2169 18.4812 20.2169 17.0743 19.3493 16.2064L13.1428 10Z" fill="#788791" /></svg>
+</div>
+</span>
+</button>
+</div>
+<div class="modal-body">
+<div class="qf-modal__secondary-header"> <div class="icon icon__warning "> <svg viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M0 20.6572H20L10 0.657227L0 20.6572ZM10.9091 17.4993H9.09091V15.3941H10.9091V17.4993ZM10.9091 13.2888H9.09091V9.07828H10.9091V13.2888Z" fill="#FFB464"></path> </svg> </div> <span>Looks like we ran into a problem.</span> </div> <div class="qf-modal__secondary-text"> <span>While trying to load the experience for you, we ran into an issue. The most likely cause is a problem with the internet connection. Please verify your connection and refresh the page to try again.</span> </div>
+</div>
+<div class="modal-footer qf-modal__btns">
+<div class="qf-modal__error-message">
+</div>
+<div class="btn-group">
+<button type="button" class="qf-btn qf-btn-secondary" data-dismiss="modal">Back</button>
+<button type="button" class="qf-btn qf-btn-primary-action js-refresh-btn">Refresh Page</button>
+</div>
+</div>
+</div>
+</div>
+<div id="qf-modal-error-dummy" class="d-none"></div>
+</div>
+<div class="qf-modal modal fade" id="qfModalPromoDetails" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="qf-modal__error modal-content">
+<div class="modal-header">
+<h5 class="modal-title">
+Amazon Fire TV Stick Offer
+</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">
+<div class="icon icon__close " title="Close">
+<svg viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.1428 10L19.3493 3.79362C20.2169 2.92572 20.2169 1.51882 19.3493 0.650922C18.4811 -0.216974 17.0744 -0.216974 16.2063 0.650922L9.99988 6.8573L3.7937 0.650922C2.92556 -0.216974 1.51864 -0.216974 0.650741 0.650922C-0.216914 1.51882 -0.216914 2.92572 0.650741 3.79362L6.85716 10L0.650741 16.2064C-0.216914 17.0743 -0.216914 18.4812 0.650741 19.3491C1.51889 20.217 2.92556 20.217 3.7937 19.3491L9.99988 13.1429L16.2063 19.3491C17.0742 20.217 18.4811 20.217 19.3493 19.3491C20.2169 18.4812 20.2169 17.0743 19.3493 16.2064L13.1428 10Z" fill="#788791" /></svg>
+</div>
+</span>
+</button>
+</div>
+<div class="modal-body">
+<div class="qf-modal__secondary-text" id="qf-modal__promoDetails">
+<p>
+Limited time offer is available through Amazon.com. Offer requires new, qualifying residential Quantum Fiber customers to sign up for a qualifying up to 940 Mbps Internet service plan to be eligible for an Amazon Fire TV Stick 4K Max (“Device”), valued at $54.99. One Device per customer/account. Customer will be sent an email, after the order is completed, with instructions on how to redeem offer. Offer must be redeemed within 14 days of the date on the redemption email to receive Device. Customer must have a free Amazon account to redeem offer. Device is provided as-is, without any warranties or guarantees beyond the manufacturer standard warranty. Subscriptions will apply to certain third-party streaming and gaming services in order to access. Offer is not stackable with other Quantum Fiber offers. Quantum Fiber may change, cancel, or substitute offers and services, or vary them by service area, at its sole discretion without notice. Additional restrictions may apply.
+</p>
+<img class="promoDetails-image" alt="img" width="303" height="260" src="https://www.quantumfiber.com/on/demandware.static/-/Sites-QFCC-Library/default/dwb67f4536/telco/modals/promoDetailsImage.png" />
+</div>
+<style>
+    #qf-modal__promoDetails .promoDetails-image {
+      margin: 0 auto;
+      display: block;
+    }
+#qf-modal__promoDetails a {cursor: default}
+    
+    .qf-modal__secondary-heade-text {
+          margin-left:7px;
+    }
+    
+    
+    @media only screen and (min-width: 768px) {
+      #qf-modal__promoDetails {
+        display: flex;
+                    overflow-y: scroll;
+                    height: 330px;
+      }
+      #qf-modal__promoDetails p {
+        padding-right: 38px;
+      }
+    }
+    </style>
+</div>
+</div>
+</div>
+</div>
+
+<script type="text/javascript">//<!--
+/* <![CDATA[ */
+function trackPage() {
+    try{
+        var trackingUrl = "https://www.quantumfiber.com/on/demandware.store/Sites-QFCC-Site/default/__Analytics-Start";
+        var dwAnalytics = dw.__dwAnalytics.getTracker(trackingUrl);
+        if (typeof dw.ac == "undefined") {
+            dwAnalytics.trackPageView();
+        } else {
+            dw.ac.setDWAnalytics(dwAnalytics);
+        }
+    }catch(err) {};
+}
+/* ]]> */
+// -->
+</script>
+<script type="text/javascript" src="/on/demandware.static/Sites-QFCC-Site/-/default/v1707242584047/internal/jscript/dwanalytics-22.2.js" async="async" onload="trackPage()"></script>
+
+<script src="/on/demandware.static/Sites-QFCC-Site/-/default/v1707242584047/internal/jscript/dwac-21.7.js" type="text/javascript" async="async"></script>
+<script src="https://cdn.cquotient.com/js/v2/gretel.min.js" type="text/javascript" async="async"></script>
+</body>
+</html>
