@@ -2,6 +2,8 @@
 *.vscode
 # or lfs settings
 .gitattributes
+# ignore linting files
+.pylintrc
 
 # standard python ignores
 # Byte-compiled / optimized / DLL files
