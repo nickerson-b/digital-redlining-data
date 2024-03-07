@@ -314,4 +314,4 @@ if __name__ == "__main__":
     print(f'got some addresses! \n{addresses[:10]}')
     # init scraper
     g = QuantumScraper(outfolder='../data_out/quantum_pages')
-    g.scrape(addresses[200:])
+    g.scrape(addresses)
