@@ -363,5 +363,5 @@ if __name__ == "__main__":
             all_addresses.append(ad[0])
     print(f'got some addresses! \n{all_addresses[:10]}')
     # init scraper
-    g = QuantumScraper(outfolder='../data_out/new_quantum_run')
-    g.scrape(all_addresses)
+    q = QuantumScraper(outfolder='../data_out/new_quantum_run')
+    q.scrape(all_addresses)
