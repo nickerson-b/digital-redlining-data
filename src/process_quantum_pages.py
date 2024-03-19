@@ -4,7 +4,7 @@ import os
 from lxml import etree
 import pandas as pd
 
-def parse_quantum_page_from_folder(directory_path: str, outfile: str, file_type: str='txt'):
+def parse_quantum_page_from_folder(directory_path: str, outfile: str, file_type: str='txt', header: list=None):
     """
     Parse quantum fiber html pages from a directory
     :param directory_path: relative path to directory containing html files
@@ -13,6 +13,8 @@ def parse_quantum_page_from_folder(directory_path: str, outfile: str, file_type:
     :type outfile: str
     :param file_type: file extension
     :type file_type: str
+    :param header: list of headers to use in data processing
+    :type header: list-like
     :returns: None
     """
     pages_dir_path = directory_path
@@ -21,7 +23,7 @@ def parse_quantum_page_from_folder(directory_path: str, outfile: str, file_type:
     if not os.path.exists(outfile): # confirm path to outfile exists
         raise FileNotFoundError
     file_names = os.listdir(pages_dir_path) # collect file names
-    headers = None
+    headers = header
     raw_data = []
     i = 0
     for n in file_names: # parse all files
@@ -61,20 +63,21 @@ def parse_quantum_page(path, file_name, file_type: str, get_headers=False):
         data = html_root.xpath("//div[@data-pid]")
         if data:
             headers = ['address'] + list(data[0].attrib.keys())
-        for el in data: # a file may have multiple data tags
-            row = []
-            row.append(file_name[:-(1 + len(file_type))]) # add address from file name
-            # extract data
-            d = el.attrib
-            for key in d.keys():
-                row.append(d[key])
-            rows.append(row)
+            for el in data: # a file may have multiple data tags
+                row = []
+                row.append(file_name[:-(1 + len(file_type))]) # add address from file name
+                # extract data
+                d = el.attrib
+                for key in d.keys():
+                    row.append(d[key])
+                rows.append(row)
     if get_headers:
         return (rows, headers)
     return rows
 
 if __name__ == '__main__':
     parse_quantum_page_from_folder(
-        directory_path='../data_out/quantum_pages',
-        outfile='../data_out/quantum_pages.csv'
+        directory_path='../data_out/new_quantum_run',
+        outfile='../data_out/quantum_pages_all.csv',
+        header=list(["address","class","data-pid","data-pname","data-price","data-equipment","data-style","data-variant","data-vgid","data-minspeed"])
     )

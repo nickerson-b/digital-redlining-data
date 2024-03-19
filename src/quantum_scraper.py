@@ -16,7 +16,7 @@ import requests
 class QuantumScraper:
     """Class that uses out folder and proxy to scrape quantum pages"""
 
-    def __init__(self, outfolder: str = 'out') -> None:
+    def __init__(self, outfolder: str = 'out', run_num: int = 0) -> None:
         # init logging
         logging.basicConfig(filename='../doc/quantum_scraper.log', encoding='utf-8',
                             level=logging.DEBUG)
@@ -25,9 +25,10 @@ class QuantumScraper:
 
         # init proxy, outfolder, and 'globals'
         self.outfolder = outfolder
-        self.p = ''  # Set proxy before use
+        self.p = 'https://customer-rnickben:6TBcLj4Ugh9M@us-pr.oxylabs.io:10000'  # Set proxy before use
         self.status_list = list(x for x in requests.status_codes._codes
                                 if x not in [200, 301, 302, 307, 308])
+        self.run_num = run_num
 
     def get_dwsid(self, n: int = 1) -> list:
         """
@@ -281,7 +282,7 @@ class QuantumScraper:
         # get csrfs
         # call data to sessions
         # save pages
-        run_num = 20
+        run_num = self.run_num
         for adr_chunk in chunker(addresses, 10):
             # start run
             print(
@@ -349,7 +350,7 @@ def exception_handler(request, exception):
     when a request fails (including all retries), simply return -1 to show that it has failed
     """
     # print([resp.url for resp in request.history])
-    print(f'Failed request: {exception}\nStatus code: {request.status_code}')
+    print(f'Failed request: {exception}\nStatus code: {request}')
     return -1
 
 
@@ -362,5 +363,5 @@ if __name__ == "__main__":
             all_addresses.append(ad[0])
     print(f'got some addresses! \n{all_addresses[:10]}')
     # init scraper
-    g = QuantumScraper(outfolder='../data_out/quantum_pages')
-    g.scrape(addresses)
+    g = QuantumScraper(outfolder='../data_out/new_quantum_run')
+    g.scrape(all_addresses)
