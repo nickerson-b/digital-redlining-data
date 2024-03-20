@@ -5,7 +5,8 @@ Runs the scraper if run as main.
 # import statements
 import time
 import csv
-import os.path
+import os
+from dotenv import load_dotenv
 import logging
 import grequests
 from requests.adapters import HTTPAdapter, Retry
@@ -23,9 +24,14 @@ class QuantumScraper:
         print(f'{time.strftime("%H:%M:%S", time.localtime())}: initializing scraper.')
         logging.info('%s: initializing scraper.', time.strftime("%H:%M:%S", time.localtime()))
 
-        # init proxy, outfolder, and 'globals'
+        # init proxy, outfolder, and env vars
+        load_dotenv()
         self.outfolder = outfolder
-        self.p = 'https://customer-rnickben:6TBcLj4Ugh9M@us-pr.oxylabs.io:10000'  # Set proxy before use
+        self.p = os.environ.get("PROXY_ENDPOINT")  # Set proxy before use
+        if self.p is None:
+            raise ValueError("No proxy endpoint found in .env. \
+                             Please set a PROXY_ENDPOINT variable in a .env file with \
+                             the proxy endpoint you will be using.")
         self.status_list = list(x for x in requests.status_codes._codes
                                 if x not in [200, 301, 302, 307, 308])
         self.run_num = run_num
