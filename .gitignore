@@ -1,5 +1,6 @@
 # don't track vscode settings 
 *.vscode
+*.code-workspace
 # or lfs settings
 .gitattributes
 # ignore linting files

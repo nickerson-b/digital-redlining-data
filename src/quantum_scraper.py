@@ -5,7 +5,8 @@ Runs the scraper if run as main.
 # import statements
 import time
 import csv
-import os.path
+import os
+from dotenv import load_dotenv
 import logging
 import grequests
 from requests.adapters import HTTPAdapter, Retry
@@ -16,18 +17,24 @@ import requests
 class QuantumScraper:
     """Class that uses out folder and proxy to scrape quantum pages"""
 
-    def __init__(self, outfolder: str = 'out') -> None:
+    def __init__(self, outfolder: str = 'out', run_num: int = 0) -> None:
         # init logging
         logging.basicConfig(filename='../doc/quantum_scraper.log', encoding='utf-8',
                             level=logging.DEBUG)
         print(f'{time.strftime("%H:%M:%S", time.localtime())}: initializing scraper.')
         logging.info('%s: initializing scraper.', time.strftime("%H:%M:%S", time.localtime()))
 
-        # init proxy, outfolder, and 'globals'
+        # init proxy, outfolder, and env vars
+        load_dotenv()
         self.outfolder = outfolder
-        self.p = ''  # Set proxy before use
+        self.p = os.environ.get("PROXY_ENDPOINT")  # Set proxy before use
+        if self.p is None:
+            raise ValueError("No proxy endpoint found in .env. \
+                             Please set a PROXY_ENDPOINT variable in a .env file with \
+                             the proxy endpoint you will be using.")
         self.status_list = list(x for x in requests.status_codes._codes
                                 if x not in [200, 301, 302, 307, 308])
+        self.run_num = run_num
 
     def get_dwsid(self, n: int = 1) -> list:
         """
@@ -281,7 +288,7 @@ class QuantumScraper:
         # get csrfs
         # call data to sessions
         # save pages
-        run_num = 20
+        run_num = self.run_num
         for adr_chunk in chunker(addresses, 10):
             # start run
             print(
@@ -349,7 +356,7 @@ def exception_handler(request, exception):
     when a request fails (including all retries), simply return -1 to show that it has failed
     """
     # print([resp.url for resp in request.history])
-    print(f'Failed request: {exception}\nStatus code: {request.status_code}')
+    print(f'Failed request: {exception}\nStatus code: {request}')
     return -1
 
 
@@ -362,5 +369,5 @@ if __name__ == "__main__":
             all_addresses.append(ad[0])
     print(f'got some addresses! \n{all_addresses[:10]}')
     # init scraper
-    g = QuantumScraper(outfolder='../data_out/quantum_pages')
-    g.scrape(addresses)
+    q = QuantumScraper(outfolder='../data_out/new_quantum_run')
+    q.scrape(all_addresses)

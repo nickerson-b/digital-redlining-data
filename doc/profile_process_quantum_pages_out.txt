@@ -1,7 +1,7 @@
 Running the process_quantum_pages.py file led to interesting results, with the first 1500 files
 being parsed in short order before the program slowed to ~10 files per second. When run in the 
 profiler, it took 20 seconds and had no serious stick points. Unsure what the problem was, let me 
-know if you figure it out!
+know if you have ideas!
 
 parsing 1 of 3895: 10001 LAKE SHORE BLVD NE SEATTLE WA 98125 USA.txt
 parsing 2 of 3895: 10002 40TH AVE SW SEATTLE WA 98146 USA.txt

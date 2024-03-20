@@ -1,14 +1,11 @@
 # import statements
-import grequests
-# import logging
-import csv
-from requests.adapters import HTTPAdapter, Retry
-from random import sample, randint
+from random import sample
 import json
-import requests
 import os
-import io
-from contextlib import redirect_stdout
+import grequests
+from requests.adapters import HTTPAdapter, Retry
+import requests
+from dotenv import load_dotenv
 
 # when a request fails (including all retries), simply return -1 to show that it has failed
 # out here because its breaking??
@@ -21,30 +18,15 @@ class CenturyLinkScraper:
     # setup addresses, and proxies
     def __init__(self, addresses=None):
         self.addresses = addresses
-        # FOR STICKY SESSIONS
-        # self.endpoints_path = 'digital-redlining-data/res/Endpoints.csv'
+        load_dotenv()
         # FOR ROTATING PROXY
-        self.proxy_endpoint = 'https://customer-rnickben-cc-us-st-us_washington:6TBcLj4Ugh9M@pr.oxylabs.io:7777'
-        # self.proxy_endpoint = 'https://customer-rnickben:6TBcLj4Ugh9M@us-pr.oxylabs.io:10000'
+        self.proxy_endpoint = os.environ.get("PROXY_ENDPOINT")  # Set proxy before use
+        if self.proxy_endpoint is None:
+            raise ValueError("No proxy endpoint found in .env. \
+                             Please set a PROXY_ENDPOINT variable in a .env file with \
+                             the proxy endpoint you will be using.")
         # retry codes, every code but 200 and 306 (unused, for skipping)
         self.status_list = list(x for x in requests.status_codes._codes if x not in [200])
-
-    # NOT USING STICKY SESSIONS ATM
-    # return a random proxy from the endpoints file
-    # credit for random file line reading: https://stackoverflow.com/a/56973905
-    def get_next_proxy(self):
-        file_size = os.path.getsize(self.endpoints_path)
-        with open(self.endpoints_path, 'rb') as f:
-            while True:
-                pos = randint(0, file_size)
-                if not pos:  # the first line is chosen
-                    return f.readline().decode()  # return str
-                f.seek(pos)  # seek to random position
-                f.readline()  # skip possibly incomplete line
-                line = f.readline()  # read next (full) line
-                if line:
-                    return line.decode()  
-                # else: line is empty -> EOF -> try another position in next iteration
     
     # sort an enumerated list by its first value
     # used to ensure all requests are returned in order

@@ -1,5 +1,3 @@
-# import statements
-
 # converter class
 class AddressConverter:
     def __init__(self, company_formatting: str):
