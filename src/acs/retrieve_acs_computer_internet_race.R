@@ -2,9 +2,9 @@ library(tidycensus)
 library(tidyverse)
 library(sf)
 
-setwd(dir = "C:/Users/Cellar Door/Documents/2023 Digital Redlining/R Scripts/Tidycensus/")
+setwd(dir = "")
 
-census_api_key("e33daf8fcedf4e362f6b59f186da0bb0a4ffcce2")
+census_api_key("")
 
 # OPTIONAL: allows us to search through the ACS variables in order to determine which are needed
 search_var <- load_variables(2021,"acs5", cache=TRUE)

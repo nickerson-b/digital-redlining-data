@@ -5,7 +5,7 @@ library(sf)
 # if desired, set working directory
 # setwd(dir = "")
 
-census_api_key("e33daf8fcedf4e362f6b59f186da0bb0a4ffcce2")
+census_api_key("")
 
 # OPTIONAL: allows us to search through the ACS variables in order to determine which are needed
 # search_var <- load_variables(2021,"acs5", cache=TRUE)
