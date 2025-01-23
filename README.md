@@ -52,5 +52,8 @@ Address Collection and Manipulation:
 - bg_geoids.py: This file contains a class, GeoidCollector, which returns the list of block group geoids for a given city using census data. Current it can do this for Seattle, Tacoma, and Spokane. This code is old and is not worth updating as it has served its purpose.
 - geoid_addresses.py: This file contains a number of functions helpful in collecting addresses from the BigLocalNews United States Place Sampler. 
 
+ACS:
+- Created by Teddy Davenport. These scripts were created in order to automatically retrieve GIS data from the US Census' American Community Survey.
+
 ### test, tools, res, and doc
 Breakdown coming soon.
